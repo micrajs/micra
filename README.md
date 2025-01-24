@@ -18,9 +18,6 @@
 
 Micra's monorepo
 
-
-
-
 ## Contributors
 
 - [Olavo Amorim Santos](https://github.com/olavoasantos)
