@@ -1,0 +1,54 @@
+# RFC <!-- #<Issue Number> -->: <!-- <Option Name> -->
+
+## **Summary**
+
+<!--
+Provide a brief summary of the proposed API design. Explain its purpose and how it aligns with the goals outlined in the corresponding RFC.
+-->
+
+## **Problem Statement**
+
+<!--
+  What problem does this API design solve? Reference the RFC issue for context (e.g., `Closes #123`).
+-->
+
+## **Proposed API Design**
+
+<!--
+  Describe the proposed API design in detail. Include:
+
+  - **Interfaces:** Provide TypeScript interfaces or type definitions.
+  - **Usage Examples:** Show examples of how the API would be used.
+  - **Behavior:** Explain key behaviors and expected outcomes.
+-->
+
+## **Design Considerations**
+
+<!--
+  Explain any trade-offs, limitations, or decisions made during the design process. Address:
+  - Why this design was chosen.
+  - Alternatives considered and why they were not selected.
+-->
+
+## **Feedback Areas**
+
+<!--
+  Highlight specific areas where feedback is requested. For example:
+  - Is the naming of methods and parameters intuitive?
+  - Are there any edge cases or scenarios this design might miss?
+-->
+
+## **Checklist**
+
+- [ ] API design aligns with the goals of the RFC.
+- [ ] Examples demonstrate intended usage clearly.
+- [ ] All relevant edge cases have been considered.
+- [ ] TypeScript interfaces/types are complete and well-documented.
+
+## **Next Steps**
+
+<!--
+  Outline what happens after approval. For example:
+  - Implementation plan.
+  - Additional documentation or tests needed.
+-->

@@ -1,0 +1,65 @@
+name: 🐛 Bug Report
+description: File a bug report here
+title: '[BUG]: '
+labels: ['Type: fix']
+assignees: ['olavoasantos']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report 🤗
+        Before creating a new issue, please ensure there are no similar open/closed issues.
+
+  - type: input
+    id: library
+    attributes:
+      label: Library
+      description: In which library or package did you experience this issue?
+      placeholder: e.g., @micra/core, @micra/application
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What is the issue? Also, what did you expect to happen instead?
+      placeholder: Describe the issue and the expected outcome.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Provide step-by-step instructions to reproduce the issue.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll to '...'
+        4. See the error
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment-details
+    attributes:
+      label: Environment Details
+      description: Include framework version, OS, browser, or any other relevant runtime details.
+      placeholder: e.g., Framework v1.0.0, macOS 13.1, Node.js v16.13.1
+
+  - type: textarea
+    id: additional-information
+    attributes:
+      label: Additional Information
+      description: Provide any logs, screenshots, reproduction videos, or other relevant context. If possible, share a small repository or code snippet to reproduce the issue.
+      placeholder: Attach logs, videos, or links to reproduction repos.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our Code of Conduct.
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

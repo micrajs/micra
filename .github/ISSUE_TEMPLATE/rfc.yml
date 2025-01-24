@@ -1,0 +1,72 @@
+name: RFC Proposal
+description: Propose a Request for Comments (RFC) to introduce a significant change.
+title: '[RFC]: '
+labels: ['Type: rfc', 'Stage: rfc']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing an RFC! 🎉
+        Please fill out the following details to help the community and maintainers understand your proposal.
+        For guidance, refer to the [RFC Process Documentation](/docs/processes/RFC%20process.md).
+
+  - type: input
+    id: title
+    attributes:
+      label: Proposal Title
+      description: Provide a concise title for your RFC.
+      placeholder: e.g., Environment API, Authentication Flow, etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: Clearly describe the problem this RFC aims to solve.
+      placeholder: What issue or need does this address? Why is this important?
+    validations:
+      required: true
+
+  - type: textarea
+    id: goals
+    attributes:
+      label: Goals and Constraints
+      description: Outline the intended outcomes and any constraints for this RFC.
+      placeholder: What should this proposal achieve, and what limitations must it consider?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Solution
+      description: Summarize your proposed approach or solution. Include high-level details and key ideas.
+      placeholder: Describe your solution or concept.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Mention other approaches or solutions you’ve considered and why they were not chosen.
+      placeholder: What else did you consider, and why did you choose this approach?
+
+  - type: checkboxes
+    id: participation
+    attributes:
+      label: Community Participation
+      description: How do you want the community to contribute to this RFC?
+      options:
+        - label: I would like feedback on this proposal.
+          required: true
+        - label: I am open to collaboration to refine this proposal.
+        - label: I will implement this if approved.
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Provide any additional information, diagrams, or references that might help reviewers understand your proposal.
+      placeholder: Add links, diagrams, or supporting documents.
