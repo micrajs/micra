@@ -5,7 +5,7 @@
   "author": "Olavo Amorim Santos<olavo.santos@micra.dev>",
   "scripts": {
     "check": "run-p check:*",
-    "check:lint": "oxlint -c .oxlintrc.json",
+    "check:lint": "oxlint -c oxlint.json",
     "check:format": "biome format .",
     "format": "biome format --write ."
   },
