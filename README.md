@@ -3,6 +3,7 @@
 </p>
 
 <p align="center">
+  <a href="./docs">Documentation</a> •
   <a href="./CONTRIBUTING.md">Contributing</a> •
   <a href="./CODE_OF_CONDUCT.md">Code of Conduct</a>
 </p>
