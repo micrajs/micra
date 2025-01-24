@@ -1,7 +1,20 @@
 {
   "name": "micra",
-  "version": "2025",
-  "scripts": {},
+  "private": true,
+  "license": "MIT",
   "author": "Olavo Amorim Santos<olavo.santos@micra.dev>",
-  "license": "MIT"
+  "scripts": {
+    "check:format": "prettier --check '**/*.{ts,tsx,md,mdx}' --log-level error",
+    "format": "prettier --write '**/*.{ts,tsx,md,mdx}'"
+  },
+  "packageManager": "pnpm@9.15.4",
+  "engines": {
+    "node": "^22"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.10",
+    "prettier": "^3.4.2",
+    "turbo": "^2.3.4",
+    "typescript": "^5.7.3"
+  }
 }
