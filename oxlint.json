@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["import", "typescript", "unicorn"],
+  "env": {
+    "browser": true
+  },
+  "globals": {},
+  "settings": {},
+  "rules": {
+    "eqeqeq": 0,
+    "no-explicit-any": 0,
+    "ban-types": 0,
+    "ban-ts-comment": 0,
+    "no-namespace": 0,
+    "no-unused-vars": [
+      2,
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ]
+  }
+}
