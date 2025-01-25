@@ -11,7 +11,7 @@
   },
   "packageManager": "pnpm@9.15.4",
   "engines": {
-    "node": "^22"
+    "node": "^20"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",

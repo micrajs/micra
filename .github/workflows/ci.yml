@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - '**'
+  push:
+    branches:
+      - main
+      - restructure
+      - v11
+
+jobs:
+  code-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 📥 Monorepo install
+        uses: ./.github/actions/pnpm_install
+      - name: 🧹 Lint
+        run: pnpm run check
