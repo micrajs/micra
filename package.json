@@ -9,7 +9,8 @@
     "check:lint": "oxlint -c oxlint.json",
     "check:format": "biome format .",
     "format": "biome format --write .",
-    "generate": "turbo gen"
+    "generate": "turbo gen",
+    "version:bump": "changeset"
   },
   "packageManager": "pnpm@9.15.4",
   "engines": {
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
+    "@changesets/cli": "^2.27.12",
     "@turbo/gen": "^2.3.4",
     "@types/node": "^22.10.10",
     "npm-run-all": "^4.1.5",
