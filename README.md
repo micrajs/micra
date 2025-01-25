@@ -2,6 +2,8 @@
   <img src="https://github.com/micrajs/micra/blob/latest/docs/assets/micra-logo.png" />
 </p>
 
+<h1 align="center">Micra</h1>
+
 <p align="center">
   <a href="https://github.com/micrajs/micra/blob/latest/docs">Documentation</a> •
   <a href="https://github.com/micrajs/micra/blob/latest/CONTRIBUTING.md">Contributing</a> •
@@ -12,8 +14,6 @@
   <img alt="issues" src="https://img.shields.io/github/issues-search/micrajs/micra?color=%23F3626C&label=Issues&logo=github&query=is%3Aopen" />
   <img alt="prs" src="https://img.shields.io/github/issues-pr/micrajs/micra?color=%23F3626C&label=Pull%20requests&logo=github" />
 </p>
-
-<h1 align="center">Micra</h1>
 
 ## About
 
