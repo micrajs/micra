@@ -19,6 +19,34 @@
 
 Micra's monorepo
 
+## Development
+
+### Code Quality
+
+#### Linting
+
+```bash
+pnpm check
+```
+
+#### Auto Formatting
+
+```bash
+pnpm format
+```
+
+### Scaffolding
+
+This monorepo is setup with scaffolding capabilities. To scaffold, run:
+
+```bash
+pnpm generate {generator}
+```
+
+#### Creating a Custom Generator
+
+To create a custom generator, edit the `./turbo/generators/config.ts` file and add a new generator via the `plop.setGenerator` method. Under the hood, we use [Turborepo's gen](https://turbo.build/repo/docs/guides/generating-code) package which uses [Plop](https://plopjs.com/documentation/) to generate files. Take a look at their documentation to learn more about how to create custom generators. To write your code, make sure to check out the `./turbo/generators/utilities` folder for helper functions.
+
 ## Contributors
 
 - [Olavo Amorim Santos](https://github.com/olavoasantos)
