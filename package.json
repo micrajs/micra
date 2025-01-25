@@ -10,7 +10,7 @@
     "check:format": "biome format .",
     "format": "biome format --write .",
     "generate": "turbo gen",
-    "version": "changeset version"
+    "version:bump": "changeset"
   },
   "packageManager": "pnpm@9.15.4",
   "engines": {
