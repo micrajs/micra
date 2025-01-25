@@ -46,7 +46,7 @@ pnpm generate {generator}
 #### Scaffold an New Framework Specification
 
 ```bash
-pnpm generate spec {specName}
+pnpm generate spec
 ```
 
 
