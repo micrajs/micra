@@ -10,7 +10,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
   plop.setActionType('run', runActionType);
 
   /**
-   *
+   * Command to generate a new domain specification in Micra's core package.
    */
   plop.setGenerator('spec', {
     description: "Create a new domain specification in Micra's core package",
