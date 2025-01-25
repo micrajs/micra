@@ -1,5 +1,6 @@
 {
   "name": "micra",
+  "description": "A modular, JavaScript framework for building scalable applications",
   "private": true,
   "license": "MIT",
   "author": "Olavo Amorim Santos<olavo.santos@micra.dev>",
