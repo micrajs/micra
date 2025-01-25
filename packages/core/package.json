@@ -3,6 +3,14 @@
   "description": "Micra's framework specifications and core abstractions",
   "version": "0.0.0",
   "license": "MIT",
+  "author": "Olavo Amorim Santos<olavo.santos@micra.dev>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/micrajs/micra.git"
+  },
+  "bugs": {
+    "url": "https://github.com/micrajs/micra/issues?q=is:issue+is:open+label:%22Project:+core%22+label:%22Type:+fix%22"
+  },
   "types": "./index.d.ts",
   "main": "",
   "files": ["./**/*.d.ts"]

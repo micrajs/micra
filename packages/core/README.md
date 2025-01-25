@@ -3,9 +3,9 @@
 </p>
 
 <p align="center">
-  <a href="/docs">Documentation</a> •
-  <a href="/CONTRIBUTING.md">Contributing</a> •
-  <a href="/CODE_OF_CONDUCT.md">Code of Conduct</a>
+  <a href="https://github.com/micrajs/micra/blob/latest/docs">Documentation</a> •
+  <a href="https://github.com/micrajs/micra/blob/latest/CONTRIBUTING.md">Contributing</a> •
+  <a href="https://github.com/micrajs/micra/blob/latest/CODE_OF_CONDUCT.md">Code of Conduct</a>
 </p>
 
 <p align="center">
