@@ -7,7 +7,7 @@ export function getAllDirectories(path: string): string[] {
     // Filter out only the directories
     return items.filter((item) => statSync(`${path}/${item}`).isDirectory());
   } catch (error) {
-    console.error(`Error occurred while retrieving directories: ${error}`);
+    console.error(`Error occurred while retrieving directories from ${path}: ${error}`);
   }
 
   return [];
