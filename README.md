@@ -19,6 +19,30 @@
 
 Micra's monorepo
 
+## Development
+
+### Code Quality
+
+#### Linting
+
+```bash
+pnpm check
+```
+
+#### Auto Formatting
+
+```bash
+pnpm format
+```
+
+### Scaffolding
+
+This monorepo is setup with scaffolding capabilities. To scaffold, run:
+
+```bash
+pnpm generate {generator}
+```
+
 ## Contributors
 
 - [Olavo Amorim Santos](https://github.com/olavoasantos)
