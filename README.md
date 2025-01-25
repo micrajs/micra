@@ -35,6 +35,14 @@ pnpm check
 pnpm format
 ```
 
+#### Creating a Changeset
+
+Whenever a change is made to one of the packages, a changeset should be created. This can be done by running:
+
+```bash
+pnpm version:bump
+```
+
 ### Scaffolding
 
 This monorepo is setup with scaffolding capabilities. To scaffold, run:
