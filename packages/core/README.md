@@ -1,0 +1,31 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/micrajs/.github/latest/assets/micra-logo.png" />
+</p>
+
+<p align="center">
+  <a href="/docs">Documentation</a> •
+  <a href="/CONTRIBUTING.md">Contributing</a> •
+  <a href="/CODE_OF_CONDUCT.md">Code of Conduct</a>
+</p>
+
+<p align="center">
+  <img alt="version" src="https://img.shields.io/npm/v/@micra/core?color=%23F3626C&logo=npm" />
+  <img alt="issues" src="https://img.shields.io/github/issues-search/micrajs/micra?color=%23F3626C&label=Issues&logo=github&query=is%3Aopen%20label%3A%22Project%3A%20core%22" />
+  <img alt="prs" src="https://img.shields.io/github/issues-pr/micrajs/micra?color=%23F3626C&label=Pull%20requests&logo=github" />
+</p>
+
+<h1 align="center">@micra/core</h1>
+
+## About
+
+Micra's framework specifications and core abstractions.
+
+## Usage
+
+```shell
+pnpm install @micra/core
+```
+
+## Contributors
+
+- [Olavo Amorim Santos](https://github.com/olavoasantos)
