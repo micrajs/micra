@@ -35,6 +35,8 @@ pnpm check
 pnpm format
 ```
 
+### Versioning
+
 #### Creating a Changeset
 
 Whenever a change is made to one of the packages, a changeset should be created. This can be done by running:
