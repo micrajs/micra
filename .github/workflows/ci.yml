@@ -17,6 +17,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: 📥 Monorepo install
-        uses: ./.github/actions/pnpm_install.yml
+        uses: ./.github/actions/pnpm_install
       - name: 🧹 Lint
         run: pnpm run check
