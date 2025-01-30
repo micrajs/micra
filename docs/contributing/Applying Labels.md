@@ -116,11 +116,14 @@ Use these labels to categorize the nature of the task. A single issue or pull re
 - **[Type: docs](https://github.com/micrajs/micra/issues?q=is%3Aopen+label%3A%22Type:+docs%22)**: For changes or additions to documentation.
 - **[Type: feat](https://github.com/micrajs/micra/issues?q=is%3Aopen+label%3A%22Type:+feat%22)**: For new features or functionality.
 - **[Type: fix](https://github.com/micrajs/micra/issues?q=is%3Aopen+label%3A%22Type:+fix%22)**: For bug fixes or error corrections.
+- **[Type: goal](https://github.com/micrajs/micra/issues?q=is%3Aopen+label%3A%22Type:+goal%22)**: Represents specific deliverables within a roadmap milestone.
 - **[Type: perf](https://github.com/micrajs/micra/issues?q=is%3Aopen+label%3A%22Type:+perf%22)**: For performance improvements or optimizations.
+- **[Type: project](https://github.com/micrajs/micra/issues?q=is%3Aopen+label%3A%22Type:+project%22)**: Represents significant components of a roadmap goal.
 - **[Type: refactor](https://github.com/micrajs/micra/issues?q=is%3Aopen+label%3A%22Type:+refactor%22)**: For code cleanups or restructuring without changing functionality.
 - **[Type: revert](https://github.com/micrajs/micra/issues?q=is%3Aopen+label%3A%22Type:+revert%22)**: For reverting previous commits.
 - **[Type: security](https://github.com/micrajs/micra/issues?q=is%3Aopen+label%3A%22Type:+security%22)**: For addressing vulnerabilities or improving security.
 - **[Type: style](https://github.com/micrajs/micra/issues?q=is%3Aopen+label%3A%22Type:+style%22)**: For formatting or stylistic changes.
+- **[Type: task](https://github.com/micrajs/micra/issues?q=is%3Aopen+label%3A%22Type:+task%22)**: Represents actionable items contributing to a roadmap project.
 - **[Type: test](https://github.com/micrajs/micra/issues?q=is%3Aopen+label%3A%22Type:+test%22)**: For adding or modifying tests.
 
 ---
