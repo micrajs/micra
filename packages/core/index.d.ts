@@ -1,3 +1,11 @@
+import type {
+  ApplicationError,
+  ErrorSerializerOptions,
+  ErrorDetail,
+  SerializedError,
+  ErrorOptions,
+} from './error';
+
 /**
  * The `Micra` namespace contains all core abstractions, contracts, and utilities
  * defined by the Micra framework. This namespace serves as the central reference
@@ -21,7 +29,12 @@
  */
 export namespace Micra {
   export {
-    //
+    // Error API
+    ApplicationError,
+    ErrorSerializerOptions,
+    ErrorDetail,
+    SerializedError,
+    ErrorOptions,
   };
 }
 
