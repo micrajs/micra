@@ -511,12 +511,6 @@ This structured approach ensures that all API errors in Django applications rema
 - [NestJS Exception Handling](https://docs.nestjs.com/exception-filters)
 - [Django Exception API Guide](https://www.django-rest-framework.org/api-guide/exceptions/)
 
-## Community Participation
-
-- [x] I would like feedback on this proposal.
-- [ ] I am open to collaboration to refine this proposal.
-- [x] I will implement this if approved.
-
 ## Q&A
 
 **Q: Will this replace all existing error handling mechanisms in Micra?**\
