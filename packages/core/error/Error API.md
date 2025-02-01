@@ -30,6 +30,169 @@ This proposal aims to introduce a robust Error API that provides:
 - Should not introduce **breaking changes** to existing error handling practices.
 - Must support both **JavaScript and TypeScript users**.
 
+## Prior Art
+
+### Specifications
+
+#### RFC 9457: Problem Details for HTTP APIs
+
+RFC 9457 defines a standard for structured field values in HTTP headers. This specification introduces a consistent syntax for representing structured data in headers, improving interoperability, efficiency, and reliability of HTTP messages. The key benefits of RFC 9457 include:
+
+- **Compact and Efficient Parsing**: Defines a structured format that is both machine-readable and optimized for transport.
+
+* **Enhanced Interoperability**: Ensures consistent interpretation of HTTP header values across different implementations.
+
+- **Supports Complex Data**: Allows representation of lists, dictionaries, and other structured data in headers without ambiguity.
+
+* **Improved Security**: Reduces parsing errors and ambiguities that can lead to security vulnerabilities.
+
+A typical JSON representation of structured field values in RFC 9457 might look like this:
+
+```json
+{
+  "errors": [
+    {
+      "status": 400,
+      "title": "Invalid Request",
+      "detail": "The provided request payload is missing required fields.",
+      "instance": "/orders/12345",
+      "type": "https://example.com/probs/invalid-request"
+    }
+  ]
+}
+```
+
+This structured approach aligns with modern web standards and enhances error reporting mechanisms when integrated with specifications like [RFC 7807](https://datatracker.ietf.org/doc/html/rfc7807) for problem details in HTTP APIs.
+
+### Existing Approaches in Other Frameworks
+
+#### Express.js
+
+Express.js relies on middleware-based error handling but does not provide a structured format for error messages. This means that different applications often implement error handling inconsistently, leading to challenges when integrating multiple services or debugging complex issues.
+
+Since Express does not enforce a standard structure, developers may return different response formats across endpoints, making it harder for client applications to process errors uniformly. For example, one endpoint might return:
+
+```json
+{
+  "error": "Invalid request"
+}
+```
+
+while another might return:
+
+```json
+{
+  "message": "User not found",
+  "status": 404
+}
+```
+
+This lack of consistency increases maintenance overhead and complicates debugging, especially in large applications. Developers often need to define custom middleware to handle errors consistently across their applications. Example:
+
+```javascript
+app.use((err, req, res, next) => {
+  res.status(err.status || 500).json({message: err.message});
+});
+```
+
+While this approach works, it places the burden on each developer to create and maintain a structured error-handling system, rather than relying on a framework-provided standard.
+
+#### NestJS
+
+NestJS provides a robust error handling mechanism through custom exception classes and exception filters. It standardizes error responses by ensuring that all thrown exceptions are structured in a consistent format. Developers can extend built-in exception classes (e.g., `BadRequestException`, `UnauthorizedException`) to create custom error types while maintaining a unified structure. Additionally, NestJS automatically formats and serializes exceptions into a response format aligned with best practices.
+
+Example of using a built-in exception:
+
+```typescript
+import {BadRequestException} from '@nestjs/common';
+
+throw new BadRequestException('Invalid request payload');
+```
+
+Developers can also create custom exceptions by extending `HttpException`:
+
+```typescript
+import {HttpException, HttpStatus} from '@nestjs/common';
+
+export class CustomException extends HttpException {
+  constructor() {
+    super('Custom error message', HttpStatus.BAD_REQUEST);
+  }
+}
+```
+
+NestJS standardizes error responses to ensure consistency across applications. When an exception is thrown, the response follows a structured JSON format, which typically includes:
+
+```json
+{
+  "statusCode": 400,
+  "message": "Invalid request payload",
+  "error": "Bad Request"
+}
+```
+
+For custom exceptions, developers can modify the response structure:
+
+```typescript
+import {HttpException, HttpStatus} from '@nestjs/common';
+
+export class CustomException extends HttpException {
+  constructor() {
+    super(
+      {
+        statusCode: HttpStatus.BAD_REQUEST,
+        message: 'Custom error message',
+        error: 'CustomError',
+        additionalData: {details: 'More context on the error'},
+      },
+      HttpStatus.BAD_REQUEST,
+    );
+  }
+}
+```
+
+This ensures that all errors in NestJS applications follow a predictable structure, making it easier to handle them consistently in clients and logs.
+
+#### Django (Python)
+
+Django REST Framework (DRF) provides a structured approach to error handling by offering a set of built-in exception classes that extend `APIException`. These exceptions ensure that error responses follow a consistent JSON structure.
+
+Django standardizes error responses using:
+
+- **Base Exception Classes**: DRF includes exceptions such as `ValidationError`, `NotAuthenticated`, and `PermissionDenied` to enforce a structured approach.
+- **Automatic Exception Formatting**: When an APIException is raised, DRF formats the response to include details like status codes and error messages.
+- **Custom Exception Handling**: Developers can override the default behavior using `exception_handler` to customize response formatting while maintaining the structured format.
+
+Example of using a built-in exception:
+
+```python
+from rest_framework.exceptions import ValidationError
+
+raise ValidationError("Invalid input data")
+```
+
+This would produce a structured JSON response:
+
+```json
+{
+  "detail": "Invalid input data"
+}
+```
+
+Customizing error handling globally:
+
+```python
+from rest_framework.views import exception_handler
+
+def custom_exception_handler(exc, context):
+    response = exception_handler(exc, context)
+    if response is not None:
+        response.data['status_code'] = response.status_code
+    return response
+```
+
+This structured approach ensures that all API errors in Django applications remain predictable, making it easier for client applications to handle and log errors consistently.
+
 ## API Designs
 
 ### **Summary**
@@ -45,40 +208,11 @@ As we build the Micra Framework from the ground up, establishing a standardized 
 - Provides **customization options** for different application needs.
 - Facilitates **serialization and deserialization** for transport and logging.
 
-Closes [#88](https://github.com/micrajs/micra/issues/88).
-
 ### **Proposed API Design**
 
 #### **ApplicationError Interface**
 
 The `ApplicationError` interface extends the built-in `Error` object, providing a structured error format with support for nested errors, metadata, and serialization. This serves as the primary error type in the framework, ensuring consistency across all error-handling implementations.
-
-##### **Handling of `add()` Method**
-
-The `add()` method is responsible for aggregating errors while ensuring a consistent structure. When adding a raw `Error` instance, it is automatically converted into an `ApplicationError` to maintain a structured format.
-
-- If an `ApplicationError` is provided, it is added directly.
-- If a standard `Error` object is passed, it is wrapped into an `ApplicationError` with a default `status` of `500` and a `title` derived from the error message.
-
-This ensures all errors follow a standardized structure, preventing serialization issues.
-
-##### **Choosing `add()` Over `push()` or `attach()`**
-
-The `add()` method was selected because it explicitly conveys the **aggregation of related errors** rather than simple array manipulation. Unlike `push()`, which suggests a low-level array operation, `add()` reflects a structured approach where errors are logically grouped within an error object.
-
-###### **Alternative: `attach()`**
-
-If more explicit semantics were preferred, `attach()` could be an alternative:
-
-```typescript
-mainError.attach(subError1, subError2);
-```
-
-However, **`add()` was ultimately chosen** because:
-
-- It is **widely used** in APIs for object-based accumulation.
-- It maintains **intuitive readability** for developers handling grouped errors.
-- It differentiates from raw array operations, reinforcing **structured error management**.
 
 ##### Interface
 
@@ -106,6 +240,33 @@ export interface ApplicationError {
 | `status`   | `500` (Internal Server Error) |
 | `errors`   | `[]` (empty array)            |
 | `metadata` | `{}` (empty object)           |
+
+##### **Handling of `add()` Method**
+
+The `add()` method is responsible for aggregating errors while ensuring a consistent structure. When adding a raw `Error` instance, it is automatically converted into an `ApplicationError` to maintain a structured format.
+
+- If an `ApplicationError` is provided, it is added directly.
+- If a standard `Error` object is passed, it is wrapped into an `ApplicationError` with a default `status` of `500` and a `title` derived from the error message.
+
+This ensures all errors follow a standardized structure, preventing serialization issues.
+
+##### **Choosing `add()` Over `push()` or `attach()`**
+
+The `add()` method was selected because it explicitly conveys the **aggregation of related errors** rather than simple array manipulation. Unlike `push()`, which suggests a low-level array operation, `add()` reflects a structured approach where errors are logically grouped within an error object.
+
+###### **Alternative: `attach()`**
+
+If more explicit semantics were preferred, `attach()` could be an alternative:
+
+```typescript
+mainError.attach(subError1, subError2);
+```
+
+However, **`add()` was ultimately chosen** because:
+
+- It is **widely used** in APIs for object-based accumulation.
+- It maintains **intuitive readability** for developers handling grouped errors.
+- It differentiates from raw array operations, reinforcing **structured error management**.
 
 #### **ErrorSerializerOptions Interface**
 
@@ -335,181 +496,11 @@ console.log(JSON.stringify(mainError.toJSON({depth: 1}), null, 2));
 - **Aggregation Support**: Enables grouping multiple errors into a single error instance.
 - **Serialization**: Allows structured logging, API error responses, and debugging flexibility.
 
-## Comparison
-
-### Specifications
-
-#### RFC 9457: Problem Details for HTTP APIs
-
-RFC 9457 defines a standard for structured field values in HTTP headers. This specification introduces a consistent syntax for representing structured data in headers, improving interoperability, efficiency, and reliability of HTTP messages. The key benefits of RFC 9457 include:
-
-- **Compact and Efficient Parsing**: Defines a structured format that is both machine-readable and optimized for transport.
-
-* **Enhanced Interoperability**: Ensures consistent interpretation of HTTP header values across different implementations.
-
-- **Supports Complex Data**: Allows representation of lists, dictionaries, and other structured data in headers without ambiguity.
-
-* **Improved Security**: Reduces parsing errors and ambiguities that can lead to security vulnerabilities.
-
-A typical JSON representation of structured field values in RFC 9457 might look like this:
-
-```json
-{
-  "errors": [
-    {
-      "status": 400,
-      "title": "Invalid Request",
-      "detail": "The provided request payload is missing required fields.",
-      "instance": "/orders/12345",
-      "type": "https://example.com/probs/invalid-request"
-    }
-  ]
-}
-```
-
-This structured approach aligns with modern web standards and enhances error reporting mechanisms when integrated with specifications like [RFC 7807](https://datatracker.ietf.org/doc/html/rfc7807) for problem details in HTTP APIs.
-
-### Existing Approaches in Other Frameworks
-
-#### Express.js
-
-Express.js relies on middleware-based error handling but does not provide a structured format for error messages. This means that different applications often implement error handling inconsistently, leading to challenges when integrating multiple services or debugging complex issues.
-
-Since Express does not enforce a standard structure, developers may return different response formats across endpoints, making it harder for client applications to process errors uniformly. For example, one endpoint might return:
-
-```json
-{
-  "error": "Invalid request"
-}
-```
-
-while another might return:
-
-```json
-{
-  "message": "User not found",
-  "status": 404
-}
-```
-
-This lack of consistency increases maintenance overhead and complicates debugging, especially in large applications. Developers often need to define custom middleware to handle errors consistently across their applications. Example:
-
-```javascript
-app.use((err, req, res, next) => {
-  res.status(err.status || 500).json({ message: err.message });
-});
-```
-
-While this approach works, it places the burden on each developer to create and maintain a structured error-handling system, rather than relying on a framework-provided standard.
-
-#### NestJS
-
-NestJS provides a robust error handling mechanism through custom exception classes and exception filters. It standardizes error responses by ensuring that all thrown exceptions are structured in a consistent format. Developers can extend built-in exception classes (e.g., `BadRequestException`, `UnauthorizedException`) to create custom error types while maintaining a unified structure. Additionally, NestJS automatically formats and serializes exceptions into a response format aligned with best practices.
-
-Example of using a built-in exception:
-
-```typescript
-import { BadRequestException } from '@nestjs/common';
-
-throw new BadRequestException('Invalid request payload');
-```
-
-Developers can also create custom exceptions by extending `HttpException`:
-
-```typescript
-import { HttpException, HttpStatus } from '@nestjs/common';
-
-export class CustomException extends HttpException {
-  constructor() {
-    super('Custom error message', HttpStatus.BAD_REQUEST);
-  }
-}
-```
-
-NestJS standardizes error responses to ensure consistency across applications. When an exception is thrown, the response follows a structured JSON format, which typically includes:
-
-```json
-{
-  "statusCode": 400,
-  "message": "Invalid request payload",
-  "error": "Bad Request"
-}
-```
-
-For custom exceptions, developers can modify the response structure:
-
-```typescript
-import { HttpException, HttpStatus } from '@nestjs/common';
-
-export class CustomException extends HttpException {
-  constructor() {
-    super(
-      {
-        statusCode: HttpStatus.BAD_REQUEST,
-        message: 'Custom error message',
-        error: 'CustomError',
-        additionalData: { details: 'More context on the error' },
-      },
-      HttpStatus.BAD_REQUEST,
-    );
-  }
-}
-```
-
-This ensures that all errors in NestJS applications follow a predictable structure, making it easier to handle them consistently in clients and logs.
-
-#### Django (Python)
-
-Django REST Framework (DRF) provides a structured approach to error handling by offering a set of built-in exception classes that extend `APIException`. These exceptions ensure that error responses follow a consistent JSON structure.
-
-Django standardizes error responses using:
-
-- **Base Exception Classes**: DRF includes exceptions such as `ValidationError`, `NotAuthenticated`, and `PermissionDenied` to enforce a structured approach.
-- **Automatic Exception Formatting**: When an APIException is raised, DRF formats the response to include details like status codes and error messages.
-- **Custom Exception Handling**: Developers can override the default behavior using `exception_handler` to customize response formatting while maintaining the structured format.
-
-Example of using a built-in exception:
-
-```python
-from rest_framework.exceptions import ValidationError
-
-raise ValidationError("Invalid input data")
-```
-
-This would produce a structured JSON response:
-
-```json
-{
-  "detail": "Invalid input data"
-}
-```
-
-Customizing error handling globally:
-
-```python
-from rest_framework.views import exception_handler
-
-def custom_exception_handler(exc, context):
-    response = exception_handler(exc, context)
-    if response is not None:
-        response.data['status_code'] = response.status_code
-    return response
-```
-
-This structured approach ensures that all API errors in Django applications remain predictable, making it easier for client applications to handle and log errors consistently.
-
 ## Drawbacks
 
 - This API adds extra code and overhead, which may impact performance and increase complexity if not carefully managed.
 - Additional documentation and onboarding efforts will be required for developers.
 - If not carefully designed, extensibility could introduce complexity.
-
-## References
-
-- [RFC 7807: Problem Details for HTTP APIs (obsolete)](https://datatracker.ietf.org/doc/html/rfc7807)
-- [RFC 9457: Problem Details for HTTP APIs](https://datatracker.ietf.org/doc/html/rfc9457)
-- [NestJS Exception Handling](https://docs.nestjs.com/exception-filters)
-- [Django Exception API Guide](https://www.django-rest-framework.org/api-guide/exceptions/)
 
 ## Q&A
 
@@ -518,3 +509,10 @@ A: No, this API will provide a standard approach while allowing flexibility for 
 
 **Q: Will this API be required for all modules?**\
 A: While recommended, modules may still use their own error handling approaches if needed.
+
+## References
+
+- [RFC 7807: Problem Details for HTTP APIs (obsolete)](https://datatracker.ietf.org/doc/html/rfc7807)
+- [RFC 9457: Problem Details for HTTP APIs](https://datatracker.ietf.org/doc/html/rfc9457)
+- [NestJS Exception Handling](https://docs.nestjs.com/exception-filters)
+- [Django Exception API Guide](https://www.django-rest-framework.org/api-guide/exceptions/)
