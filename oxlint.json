@@ -6,6 +6,12 @@
   },
   "globals": {},
   "settings": {},
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/coverage/**",
+    "turbo/generators/templates/**"
+  ],
   "rules": {
     "eqeqeq": 0,
     "no-explicit-any": 0,

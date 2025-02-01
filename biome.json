@@ -16,6 +16,7 @@
       "**/.vscode",
       "**/.idea",
       "**/coverage",
+      "turbo/generators/templates/**",
       "**/*.sw[op]",
       "**/*.log"
     ]

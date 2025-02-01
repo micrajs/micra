@@ -6,7 +6,8 @@
   "author": "Olavo Amorim Santos<olavo.santos@micra.dev>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/micrajs/micra.git"
+    "url": "https://github.com/micrajs/micra.git",
+    "directory": "packages/core"
   },
   "bugs": {
     "url": "https://github.com/micrajs/micra/issues?q=is:issue+is:open+label:%22Project:+core%22+label:%22Type:+fix%22"

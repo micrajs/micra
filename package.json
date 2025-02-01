@@ -6,10 +6,11 @@
   "author": "Olavo Amorim Santos<olavo.santos@micra.dev>",
   "scripts": {
     "check": "run-p check:*",
-    "check:lint": "oxlint -c oxlint.json",
-    "check:format": "biome format .",
+    "check:lint": "oxlint -c oxlint.json --silent",
+    "check:format": "biome format . --log-level=error",
     "format": "biome format --write .",
     "generate": "turbo gen",
+    "verify:performance": "node .performance.mjs",
     "version:bump": "changeset"
   },
   "packageManager": "pnpm@9.15.4",
@@ -19,11 +20,11 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@changesets/cli": "^2.27.12",
-    "@turbo/gen": "^2.3.4",
-    "@types/node": "^22.10.10",
+    "@turbo/gen": "^2.4.0",
+    "@types/node": "^22.13.0",
     "npm-run-all": "^4.1.5",
-    "oxlint": "^0.15.8",
-    "turbo": "^2.3.4",
+    "oxlint": "^0.15.9",
+    "turbo": "^2.4.0",
     "typescript": "^5.7.3"
   }
 }
