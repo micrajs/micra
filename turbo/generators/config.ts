@@ -28,12 +28,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
         getTemplateFiles(templates('spec')).map(({file, templateFile}) => ({
           templateFile,
           type: 'add',
-          path: root(
-            'packages',
-            'core',
-            '{{name}}',
-            normalizeTemplateName(file),
-          ),
+          path: root('packages', 'core', '{{name}}', normalizeTemplateName(file)),
         })),
       ),
   });
@@ -86,13 +81,11 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
     ],
     actions: () =>
       plopActions(
-        getTemplateFiles(templates('submodule')).map(
-          ({file, templateFile}) => ({
-            templateFile,
-            type: 'add',
-            path: cwd('src', normalizeTemplateName(file)),
-          }),
-        ),
+        getTemplateFiles(templates('submodule')).map(({file, templateFile}) => ({
+          templateFile,
+          type: 'add',
+          path: cwd('src', normalizeTemplateName(file)),
+        })),
         {
           type: 'modify',
           path: cwd('package.json'),
