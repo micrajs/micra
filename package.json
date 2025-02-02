@@ -8,6 +8,7 @@
     "check": "run-p check:*",
     "check:lint": "oxlint -c oxlint.json --silent",
     "check:format": "biome format . --log-level=error",
+    "check:tests": "turbo run test --no-color --output-logs=errors-only",
     "check:libraries": "turbo run check --no-color --output-logs=errors-only",
     "format": "biome format --write .",
     "generate": "turbo gen",

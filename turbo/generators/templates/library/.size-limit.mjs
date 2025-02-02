@@ -1,5 +1,6 @@
-const ENTRIES = [{path: 'dist/index.js', limit: '13 b'}];
+import {sizeLimit} from '../../.size-limit.mjs';
 
-const DEFAULTS = {ignore: ['@micra/*']};
-
-export default ENTRIES.map((entry) => ({...DEFAULTS, ...entry}));
+export default sizeLimit(
+  // Add submodules
+  {path: 'dist/index.js', limit: '13 b'},
+);

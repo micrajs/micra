@@ -31,6 +31,7 @@
     "check:types": "tsc --noEmit",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "dev": "vite build --watch",
+    "generate": "turbo gen",
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest",
     "test": "vitest run"
