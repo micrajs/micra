@@ -9,14 +9,14 @@
     "bracketSpacing": false,
     "ignore": [
       "**/.DS_Store",
-      "**/node_modules",
+      "**/node_modules/**",
       "**/npm-debug.log",
       "**/dist/**",
       "**/.turbo/**",
       "*/pnpm-lock.yaml",
       "**/.vscode",
       "**/.idea",
-      "**/coverage",
+      "**/coverage/**",
       "turbo/generators/templates/**",
       "**/*.sw[op]",
       "**/*.log"

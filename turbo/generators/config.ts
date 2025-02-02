@@ -1,12 +1,13 @@
 import type {PlopTypes} from '@turbo/gen';
 import * as shell from 'shelljs';
+import {cwd} from './utilities/cwd';
 import {getTemplateFiles} from './utilities/getTemplateFiles';
 import {normalizeTemplateName} from './utilities/normalizeTemplateName';
+import {plopActions} from './utilities/plopActions';
 import {root} from './utilities/root';
 import {runActionType} from './utilities/runActionType';
 import {templates} from './utilities/templates';
-import {plopActions} from './utilities/plopActions';
-import {cwd} from './utilities/cwd';
+import {formatAction} from './utilities/formatAction';
 
 export default function generator(plop: PlopTypes.NodePlopAPI): void {
   plop.setActionType('run', runActionType);
@@ -30,6 +31,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
           type: 'add',
           path: root('packages', 'core', '{{name}}', normalizeTemplateName(file)),
         })),
+        formatAction,
       ),
   });
 
@@ -58,12 +60,22 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
           path: root('packages', '{{name}}', normalizeTemplateName(file)),
         })),
         {
+          type: 'modify',
+          path: root('.performance.mjs'),
+          transform(content: any, data: any = {}) {
+            const importStatement = `import './packages/${data.name}/.performance.mjs';`;
+
+            return content.includes(importStatement) ? content : `${importStatement}\n${content}`;
+          },
+        },
+        {
           type: 'run',
           async call() {
             shell.exec('pnpm install');
             return 'Installed dependencies';
           },
         },
+        formatAction,
       ),
   });
 
@@ -117,6 +129,22 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
             return `${content}\nexport * from './${data.name}';\n`;
           },
         },
+        {
+          type: 'modify',
+          path: cwd('.size-limit.mjs'),
+          transform(content: any, data: any = {}) {
+            const submoduleEntry = `{path: 'dist/${data.name}.js', limit: '13 b'},`;
+            if (content.includes('// Add submodules')) {
+              return content.replace('// Add submodules', `// Add submodules\n\t${submoduleEntry}`);
+            }
+
+            return content.replace(
+              'export default sizeLimit(',
+              `export default sizeLimit(\n\t${submoduleEntry}`,
+            );
+          },
+        },
+        formatAction,
       ),
   });
 
@@ -133,11 +161,14 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       },
     ],
     actions: () =>
-      getTemplateFiles(templates('guard')).map(({file, templateFile}) => ({
-        templateFile,
-        type: 'add',
-        path: cwd('src', 'guards', normalizeTemplateName(file)),
-      })),
+      plopActions(
+        getTemplateFiles(templates('guard')).map(({file, templateFile}) => ({
+          templateFile,
+          type: 'add',
+          path: cwd('src', 'guards', normalizeTemplateName(file)),
+        })),
+        formatAction,
+      ),
   });
 
   /**
@@ -153,11 +184,14 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       },
     ],
     actions: () =>
-      getTemplateFiles(templates('utility')).map(({file, templateFile}) => ({
-        templateFile,
-        type: 'add',
-        path: cwd('src', 'utilities', normalizeTemplateName(file)),
-      })),
+      plopActions(
+        getTemplateFiles(templates('utility')).map(({file, templateFile}) => ({
+          templateFile,
+          type: 'add',
+          path: cwd('src', 'utilities', normalizeTemplateName(file)),
+        })),
+        formatAction,
+      ),
   });
 
   /**
@@ -173,11 +207,14 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       },
     ],
     actions: () =>
-      getTemplateFiles(templates('class')).map(({file, templateFile}) => ({
-        templateFile,
-        type: 'add',
-        path: cwd('src', 'classes', normalizeTemplateName(file)),
-      })),
+      plopActions(
+        getTemplateFiles(templates('class')).map(({file, templateFile}) => ({
+          templateFile,
+          type: 'add',
+          path: cwd('src', 'classes', normalizeTemplateName(file)),
+        })),
+        formatAction,
+      ),
   });
 
   /**
@@ -193,11 +230,14 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       },
     ],
     actions: () =>
-      getTemplateFiles(templates('constant')).map(({file, templateFile}) => ({
-        templateFile,
-        type: 'add',
-        path: cwd('src', 'constants', normalizeTemplateName(file)),
-      })),
+      plopActions(
+        getTemplateFiles(templates('constant')).map(({file, templateFile}) => ({
+          templateFile,
+          type: 'add',
+          path: cwd('src', 'constants', normalizeTemplateName(file)),
+        })),
+        formatAction,
+      ),
   });
 
   /**
@@ -213,11 +253,14 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       },
     ],
     actions: () =>
-      getTemplateFiles(templates('types')).map(({file, templateFile}) => ({
-        templateFile,
-        type: 'add',
-        path: cwd('src', 'types', normalizeTemplateName(file)),
-      })),
+      plopActions(
+        getTemplateFiles(templates('types')).map(({file, templateFile}) => ({
+          templateFile,
+          type: 'add',
+          path: cwd('src', 'types', normalizeTemplateName(file)),
+        })),
+        formatAction,
+      ),
   });
 
   plop.setGenerator('register', {
@@ -241,6 +284,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
             return JSON.stringify(pkg, null, 2);
           },
         },
+        formatAction,
       ),
   });
 }
