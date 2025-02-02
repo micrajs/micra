@@ -1,0 +1,51 @@
+{
+  "name": "@micra/error",
+  "description": "Micra's official Error API implementation",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "Olavo Amorim Santos<olavo.santos@micra.dev>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/micrajs/micra.git",
+    "directory": "packages/error"
+  },
+  "bugs": {
+    "url": "https://github.com/micrajs/micra/issues?q=is:issue+is:open+label:%22Project:+error%22+label:%22Type:+fix%22"
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "type": "module",
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "vite build",
+    "check": "pnpm build -l error && run-p check:*",
+    "check:size": "size-limit --silent",
+    "check:types": "tsc --noEmit",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "dev": "vite build --watch",
+    "generate": "turbo gen",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@micra/core": "workspace:^0.0.0",
+    "@size-limit/preset-small-lib": "^11.1.2",
+    "@types/benchmark": "^2.1.5",
+    "@vitest/coverage-v8": "^3.0.4",
+    "benchmark": "^2.1.4",
+    "npm-run-all": "^4.1.5",
+    "size-limit": "^11.1.4",
+    "vite": "^6.0.11",
+    "vite-plugin-dts": "^4.5.0",
+    "vitest": "^3.0.4"
+  }
+}
