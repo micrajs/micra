@@ -28,7 +28,12 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
         getTemplateFiles(templates('spec')).map(({file, templateFile}) => ({
           templateFile,
           type: 'add',
-          path: root('packages', 'core', '{{name}}', normalizeTemplateName(file)),
+          path: root(
+            'packages',
+            'core',
+            '{{name}}',
+            normalizeTemplateName(file),
+          ),
         })),
       ),
   });
@@ -58,9 +63,27 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
           path: root('packages', '{{name}}', normalizeTemplateName(file)),
         })),
         {
+          type: 'modify',
+          path: root('.performance.mjs'),
+          transform(content: any, data: any = {}) {
+            const importStatement = `import './packages/${data.name}/.performance.mjs';`;
+
+            return content.includes(importStatement)
+              ? content
+              : `${importStatement}\n${content}`;
+          },
+        },
+        {
           type: 'run',
           async call() {
             shell.exec('pnpm install');
+            return 'Installed dependencies';
+          },
+        },
+        {
+          type: 'run',
+          async call() {
+            shell.exec('pnpm format');
             return 'Installed dependencies';
           },
         },
@@ -81,11 +104,13 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
     ],
     actions: () =>
       plopActions(
-        getTemplateFiles(templates('submodule')).map(({file, templateFile}) => ({
-          templateFile,
-          type: 'add',
-          path: cwd('src', normalizeTemplateName(file)),
-        })),
+        getTemplateFiles(templates('submodule')).map(
+          ({file, templateFile}) => ({
+            templateFile,
+            type: 'add',
+            path: cwd('src', normalizeTemplateName(file)),
+          }),
+        ),
         {
           type: 'modify',
           path: cwd('package.json'),
