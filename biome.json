@@ -11,11 +11,13 @@
       "**/.DS_Store",
       "**/node_modules",
       "**/npm-debug.log",
-      "**/dist",
+      "**/dist/**",
+      "**/.turbo/**",
       "*/pnpm-lock.yaml",
       "**/.vscode",
       "**/.idea",
       "**/coverage",
+      "turbo/generators/templates/**",
       "**/*.sw[op]",
       "**/*.log"
     ]
