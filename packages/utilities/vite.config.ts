@@ -11,11 +11,7 @@ export default defineConfig({
       formats: ['es', 'cjs'],
       entry: {
         index: 'src/index.ts',
-        normalizeError: 'src/normalizeError.ts',
-        isErrorOptions: 'src/isErrorOptions.ts',
-        isError: 'src/isError.ts',
-        isApplicationError: 'src/isApplicationError.ts',
-        ApplicationError: 'src/ApplicationError.ts',
+        isRecord: 'src/isRecord.ts',
       },
     },
     rollupOptions: {

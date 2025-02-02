@@ -1,16 +1,16 @@
 {
-  "name": "@micra/error",
-  "description": "Micra's official Error API implementation",
+  "name": "@micra/utilities",
+  "description": "A set of generic utilities used across the Micra framework",
   "version": "0.0.0",
   "license": "MIT",
   "author": "Olavo Amorim Santos<olavo.santos@micra.dev>",
   "repository": {
     "type": "git",
     "url": "https://github.com/micrajs/micra.git",
-    "directory": "packages/error"
+    "directory": "packages/utilities"
   },
   "bugs": {
-    "url": "https://github.com/micrajs/micra/issues?q=is:issue+is:open+label:%22Project:+error%22+label:%22Type:+fix%22"
+    "url": "https://github.com/micrajs/micra/issues?q=is:issue+is:open+label:%22Project:+utilities%22+label:%22Type:+fix%22"
   },
   "types": "dist/index.d.ts",
   "main": "dist/index.cjs",
@@ -23,30 +23,10 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./ApplicationError": {
-      "types": "./dist/ApplicationError.d.ts",
-      "import": "./dist/ApplicationError.js",
-      "require": "./dist/ApplicationError.cjs"
-    },
-    "./isApplicationError": {
-      "types": "./dist/isApplicationError.d.ts",
-      "import": "./dist/isApplicationError.js",
-      "require": "./dist/isApplicationError.cjs"
-    },
-    "./isError": {
-      "types": "./dist/isError.d.ts",
-      "import": "./dist/isError.js",
-      "require": "./dist/isError.cjs"
-    },
-    "./isErrorOptions": {
-      "types": "./dist/isErrorOptions.d.ts",
-      "import": "./dist/isErrorOptions.js",
-      "require": "./dist/isErrorOptions.cjs"
-    },
-    "./normalizeError": {
-      "types": "./dist/normalizeError.d.ts",
-      "import": "./dist/normalizeError.js",
-      "require": "./dist/normalizeError.cjs"
+    "./isRecord": {
+      "types": "./dist/isRecord.d.ts",
+      "import": "./dist/isRecord.js",
+      "require": "./dist/isRecord.cjs"
     }
   },
   "scripts": {
@@ -60,9 +40,6 @@
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest",
     "test": "vitest run"
-  },
-  "dependencies": {
-    "@micra/utilities": "workspace:^0.0.0"
   },
   "devDependencies": {
     "@micra/core": "workspace:^0.0.0",
