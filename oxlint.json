@@ -9,6 +9,7 @@
   "ignorePatterns": [
     "**/node_modules/**",
     "**/dist/**",
+    "**/.turbo/**",
     "**/coverage/**",
     "turbo/generators/templates/**"
   ],

@@ -18,12 +18,12 @@
 
 ## About
 
-{{description}}
+{{{description}}}
 
 ## Usage
 
 ```shell
-pnpm install @micra/{{name}}
+pnpm install @micra/{{{name}}}
 ```
 
 ## Contributors
