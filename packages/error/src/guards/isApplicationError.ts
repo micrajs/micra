@@ -3,6 +3,19 @@ import {APPLICATION_ERROR_IDENTIFIER} from '../constants/symbols';
 import {isError} from './isError';
 import {isErrorOptions} from './isErrorOptions';
 
+/**
+ * Checks if the given value is an `Micra.ApplicationError`.
+ * This function verifies that the object adheres to the `Micra.ApplicationError` interface.
+ *
+ * @param maybeError - The value to be checked.
+ * @returns True if the value is an `Micra.ApplicationError`, otherwise false.
+ *
+ * @example
+ * ```typescript
+ * const error = new ApplicationError('Something went wrong');
+ * isApplicationError(error); // true
+ * ```
+ */
 export function isApplicationError(maybeError: any): maybeError is Micra.ApplicationError {
   return (
     isError(maybeError) &&
