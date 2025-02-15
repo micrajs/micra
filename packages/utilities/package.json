@@ -16,9 +16,7 @@
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "type": "module",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "exports": {
     "./isRecord": {
       "types": "./dist/isRecord.d.ts",
