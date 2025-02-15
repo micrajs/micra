@@ -35,6 +35,18 @@ pnpm check
 pnpm format
 ```
 
+#### Testing
+
+```bash
+pnpm test
+```
+
+### Updating Dependencies
+
+```bash
+pnpm dependencies:update
+```
+
 ### Versioning
 
 #### Creating a Changeset

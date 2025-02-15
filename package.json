@@ -14,6 +14,8 @@
     "docs:generate": "turbo run docs:generate --no-color --output-logs=errors-only",
     "format": "biome format --write .",
     "generate": "turbo gen",
+    "test": "turbo run test --no-color --output-logs=errors-only",
+    "dependencies:update": "pnpm up -Lir",
     "verify:performance": "node .performance.mjs",
     "version:bump": "changeset"
   },
@@ -24,13 +26,13 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@changesets/cli": "^2.27.12",
-    "@turbo/gen": "^2.4.0",
-    "@types/node": "^22.13.0",
+    "@turbo/gen": "^2.4.2",
+    "@types/node": "^22.13.4",
     "@types/shelljs": "^0.8.15",
     "npm-run-all": "^4.1.5",
-    "oxlint": "^0.15.9",
+    "oxlint": "^0.15.10",
     "shelljs": "^0.8.5",
-    "turbo": "^2.4.0",
+    "turbo": "^2.4.2",
     "typedoc": "^0.27.7",
     "typedoc-plugin-markdown": "^4.4.2",
     "typescript": "^5.7.3"
