@@ -15,11 +15,11 @@ The `ApplicationError` class in the `@micra/error` package supports an optional 
 Ensure you have the `@micra/error` package installed in your project.
 
 ```bash
-npm install @micra/error
+pnpm add @micra/error
 # or
 yarn add @micra/error
 # or
-pnpm install @micra/error
+npm install @micra/error
 ```
 
 ### Step 2: Import `ApplicationError`
