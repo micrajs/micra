@@ -45,6 +45,16 @@ Whenever a change is made to one of the packages, a changeset should be created.
 pnpm version:bump
 ```
 
+### Documentation
+
+#### Generating Reference Documentation
+
+To generate the reference documentation, run:
+
+```bash
+pnpm docs:generate
+```
+
 ### Scaffolding
 
 This monorepo is setup with scaffolding capabilities. To scaffold, run:
