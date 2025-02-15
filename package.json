@@ -15,6 +15,7 @@
     "format": "biome format --write .",
     "generate": "turbo gen",
     "test": "turbo run test --no-color --output-logs=errors-only",
+    "dependencies:update": "pnpm up -Lir",
     "verify:performance": "node .performance.mjs",
     "version:bump": "changeset"
   },
