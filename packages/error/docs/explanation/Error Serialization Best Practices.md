@@ -12,8 +12,7 @@ The `ApplicationError` class in Micra provides a `toJSON` method with options fo
 
 ### Control Depth to Prevent Infinite Loops
 
-When errors are deeply nested, serialization without depth control can lead to infinite loops and application crashes. Setting a reasonable depth, such as 5, ensures that only the most relevant errors are serialized. For example:
-
+When errors are deeply nested, serialization without depth control can prevent infinite loops and application crashes. Setting a reasonable depth, such as 5, ensures that only the most relevant errors are serialized. For example:
 ```ts
 const error = new ApplicationError({title: 'Nested Error', status: 500});
 error.add(new ApplicationError({title: 'Sub-error', status: 400}));
