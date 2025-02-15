@@ -14,6 +14,7 @@
     "docs:generate": "turbo run docs:generate --no-color --output-logs=errors-only",
     "format": "biome format --write .",
     "generate": "turbo gen",
+    "test": "turbo run test --no-color --output-logs=errors-only",
     "verify:performance": "node .performance.mjs",
     "version:bump": "changeset"
   },
