@@ -1,6 +1,18 @@
 import type {Micra} from '@micra/core';
 import {isRecord} from '@micra/utilities/isRecord';
 
+/**
+ * Checks if the given value is a valid `Micra.ErrorOptions` object.
+ * Validates that the object matches the structure expected for `Micra.ErrorOptions`.
+ *
+ * @param maybeOptions - The value to be checked.
+ * @returns True if the value conforms to `Micra.ErrorOptions`, otherwise false.
+ *
+ * @example
+ * ```typescript
+ * isErrorOptions({ title: 'Validation Error', status: 400 }); // true
+ * ```
+ */
 export function isErrorOptions(maybeOptions: any): maybeOptions is Micra.ErrorOptions {
   return (
     isRecord(maybeOptions) &&

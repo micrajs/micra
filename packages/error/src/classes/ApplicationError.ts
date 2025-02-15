@@ -3,6 +3,9 @@ import {APPLICATION_ERROR_IDENTIFIER} from '../constants/symbols';
 import {isErrorOptions} from '../guards/isErrorOptions';
 import {normalizeError} from '../utilities/normalizeError';
 
+/**
+ * Represents a structured error in the application. Supports metadata, nested error aggregation, and serialization.
+ */
 export class ApplicationError extends Error implements Micra.ApplicationError {
   public detail?: string | undefined;
   public instance?: string | undefined;
@@ -11,12 +14,32 @@ export class ApplicationError extends Error implements Micra.ApplicationError {
   public title: string;
   public type?: string | undefined;
   public errors: Micra.ApplicationError[] = [];
+  /** @internal */
   public [APPLICATION_ERROR_IDENTIFIER] = true;
 
   public get hasErrors(): boolean {
     return this.errors.length > 0;
   }
 
+  /**
+   * Creates a new instance of ApplicationError.
+   *
+   * @param messageOrDetails The error message or error details.
+   * @returns A new instance of ApplicationError.
+   *
+   * @example
+   * ```typescript
+   * // With a message
+   * throw new ApplicationError('An error occurred.');
+   * // With details
+   * throw new ApplicationError({
+   *  status: 400,
+   *  title: 'Bad Request',
+   *  detail: 'The request was invalid.',
+   *  metadata: {requestId: '12345'},
+   * });
+   * ```
+   */
   constructor(messageOrDetails: string | Micra.ErrorOptions) {
     const options =
       typeof messageOrDetails === 'string'

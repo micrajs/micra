@@ -11,6 +11,7 @@
     "check:format": "biome format . --log-level=error",
     "check:tests": "turbo run test --no-color --output-logs=errors-only",
     "check:libraries": "turbo run check --no-color --output-logs=errors-only",
+    "docs:generate": "turbo run docs:generate --no-color --output-logs=errors-only",
     "format": "biome format --write .",
     "generate": "turbo gen",
     "verify:performance": "node .performance.mjs",
@@ -30,6 +31,8 @@
     "oxlint": "^0.15.9",
     "shelljs": "^0.8.5",
     "turbo": "^2.4.0",
+    "typedoc": "^0.27.7",
+    "typedoc-plugin-markdown": "^4.4.2",
     "typescript": "^5.7.3"
   }
 }

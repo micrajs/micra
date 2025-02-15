@@ -10,7 +10,6 @@ export default defineConfig({
     lib: {
       formats: ['es', 'cjs'],
       entry: {
-        index: 'src/index.ts',
         isRecord: 'src/isRecord.ts',
       },
     },

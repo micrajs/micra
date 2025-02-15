@@ -4,6 +4,21 @@ import {isError} from '../guards/isError';
 import {isApplicationError} from '../guards/isApplicationError';
 import {APPLICATION_ERROR_IDENTIFIER} from '../constants/symbols';
 
+/**
+ * Converts a given value into an `ApplicationError`.
+ * If the value is already an `ApplicationError`, it is returned as-is.
+ * If it's a standard `Error`, it is converted into an `ApplicationError`.
+ * Otherwise, a new `ApplicationError` is created with the provided value as metadata.
+ *
+ * @param value - The value to normalize into an `ApplicationError`.
+ * @returns An instance of `ApplicationError`.
+ *
+ * @example
+ * ```typescript
+ * const error = normalizeError(new Error('Something went wrong')); // Converted into an ApplicationError
+ * const customError = normalizeError('Unexpected issue'); // Wraps string into an ApplicationError
+ * ```
+ */
 export function normalizeError(value: any): Micra.ApplicationError {
   if (isApplicationError(value)) return value;
 

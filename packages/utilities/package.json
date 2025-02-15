@@ -18,11 +18,6 @@
   "type": "module",
   "files": ["dist"],
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
     "./isRecord": {
       "types": "./dist/isRecord.d.ts",
       "import": "./dist/isRecord.js",
@@ -35,6 +30,7 @@
     "check:size": "size-limit --silent",
     "check:types": "tsc --noEmit",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "docs:generate": "typedoc --options .typedoc.mjs",
     "dev": "vite build --watch",
     "generate": "turbo gen",
     "test:coverage": "vitest run --coverage",

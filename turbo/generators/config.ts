@@ -124,6 +124,21 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
         },
         {
           type: 'modify',
+          path: cwd('.typedoc.mjs'),
+          transform(content: any, data: any = {}) {
+            const submoduleEntry = `'src/${data.name}.ts',`;
+            if (content.includes('// Add submodules')) {
+              return content.replace('// Add submodules', `// Add submodules\n\t${submoduleEntry}`);
+            }
+
+            return content.replace(
+              'export default entryPoints: [',
+              `export default entryPoints: [\n\t${submoduleEntry}`,
+            );
+          },
+        },
+        {
+          type: 'modify',
           path: cwd('src', 'index.ts'),
           transform(content: any, data: any = {}) {
             return `${content}\nexport * from './${data.name}';\n`;

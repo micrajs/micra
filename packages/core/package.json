@@ -14,5 +14,8 @@
   },
   "types": "./index.d.ts",
   "main": "",
-  "files": ["./**/*.d.ts"]
+  "files": ["./**/*.d.ts"],
+  "scripts": {
+    "docs:generate": "typedoc --options .typedoc.mjs"
+  }
 }
