@@ -46,8 +46,7 @@ export class ApplicationError extends Error implements Micra.ApplicationError {
         ? {status: 500, title: 'Application Error', detail: messageOrDetails}
         : Object.assign(Object.create(null), messageOrDetails);
 
-    if (!isErrorOptions(options))
-      throw new ApplicationError('Invalid error options provided.');
+    if (!isErrorOptions(options)) throw new ApplicationError('Invalid error options provided.');
 
     super(options.detail);
     this.title = options.title;
@@ -59,8 +58,8 @@ export class ApplicationError extends Error implements Micra.ApplicationError {
   }
 
   add(maybeList?: unknown, ...rest: unknown[]): void {
-    (Array.isArray(maybeList) ? maybeList : [maybeList].concat(rest)).forEach(
-      (error) => this.errors.push(normalizeError(error)),
+    (Array.isArray(maybeList) ? maybeList : [maybeList].concat(rest)).forEach((error) =>
+      this.errors.push(normalizeError(error)),
     );
   }
 
@@ -68,10 +67,7 @@ export class ApplicationError extends Error implements Micra.ApplicationError {
     this.errors = [];
   }
 
-  toJSON({
-    depth = 5,
-    includeStack,
-  }: Micra.ErrorSerializerOptions = {}): Micra.SerializedError {
+  toJSON({depth = 5, includeStack}: Micra.ErrorSerializerOptions = {}): Micra.SerializedError {
     return {
       title: this.title,
       detail: this.detail,
@@ -81,11 +77,7 @@ export class ApplicationError extends Error implements Micra.ApplicationError {
       type: this.type,
       stack: includeStack ? this.stack : undefined,
       errors:
-        depth > 0
-          ? this.errors.map((error) =>
-              error.toJSON({includeStack, depth: depth - 1}),
-            )
-          : [],
+        depth > 0 ? this.errors.map((error) => error.toJSON({includeStack, depth: depth - 1})) : [],
     };
   }
 }
