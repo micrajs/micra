@@ -5,6 +5,13 @@ import type {
   SerializedError,
   ErrorOptions,
 } from './error';
+import type {
+  Event,
+  AddEventListenerOptions,
+  EventListener,
+  MatchGlobEvents,
+  EventEmitter,
+} from './event-emitter';
 
 /**
  * The `Micra` namespace contains all core abstractions, contracts, and utilities
@@ -35,6 +42,12 @@ export namespace Micra {
     ErrorDetail,
     SerializedError,
     ErrorOptions,
+    // Event Emitter API
+    Event,
+    AddEventListenerOptions,
+    EventListener,
+    MatchGlobEvents,
+    EventEmitter,
   };
 }
 
