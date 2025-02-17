@@ -130,7 +130,7 @@ export type MatchGlobEvents<Glob extends string, EventMap extends Record<string,
  *
  * @template EventMap - A record that maps event types to their corresponding detail objects.
  */
-export interface EventEmitter<EventMap extends Record<string, any> = {}> {
+export interface EventEmitter<EventMap extends Record<string, any> = Record<string, any>> {
   /**
    * Adds an event listener for a specific event type, with support for glob patterns and optional listener settings.
    * Returns a function that removes the added listener when called.
