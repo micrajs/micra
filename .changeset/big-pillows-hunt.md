@@ -2,4 +2,4 @@
 "@micra/core": minor
 ---
 
-Add Error API
+Introduce the Error API specification
