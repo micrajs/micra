@@ -22,6 +22,16 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./EventEmitter": {
+      "types": "./dist/EventEmitter.d.ts",
+      "import": "./dist/EventEmitter.js",
+      "require": "./dist/EventEmitter.cjs"
+    },
+    "./Event": {
+      "types": "./dist/Event.d.ts",
+      "import": "./dist/Event.js",
+      "require": "./dist/Event.cjs"
     }
   },
   "scripts": {
@@ -36,6 +46,9 @@
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest",
     "test": "vitest run"
+  },
+  "dependencies": {
+    "@micra/error": "workspace:^0.0.0"
   },
   "devDependencies": {
     "@micra/core": "workspace:^0.0.0",

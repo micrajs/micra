@@ -2,6 +2,8 @@
 const config = {
   entryPoints: [
     // Add submodules
+    'src/Event.ts',
+    'src/EventEmitter.ts',
     'src/index.ts',
   ],
   exclude: ['**/*+(.test).tsx?'],

@@ -1,6 +1,6 @@
 import Benchmark from 'benchmark';
 const suite = new Benchmark.Suite();
-import {} from './dist/index.mjs';
+import {} from './dist/index.js';
 
 suite
   .add('@micra/{{{name}}}:test', () => {})

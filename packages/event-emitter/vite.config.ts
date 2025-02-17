@@ -11,6 +11,8 @@ export default defineConfig({
       formats: ['es', 'cjs'],
       entry: {
         index: 'src/index.ts',
+        Event: 'src/Event.ts',
+        EventEmitter: 'src/EventEmitter.ts',
       },
     },
     rollupOptions: {
@@ -25,7 +27,7 @@ export default defineConfig({
     coverage: {
       include: ['src/**/*.ts'],
       reporter: 'json-summary',
-      exclude: ['node_modules', 'tests', '**/*.test.ts', 'src/*.ts'],
+      exclude: ['node_modules', 'tests', '**/*.test.ts', 'src/*.ts', 'src/types/*.ts'],
       reportsDirectory: '.config/coverage',
     },
   },
