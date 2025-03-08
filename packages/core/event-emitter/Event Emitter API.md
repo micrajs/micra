@@ -2,7 +2,7 @@
 
 ## **Summary**
 
-This RFC proposes the development of a robust, type-safe Event Emitter API for the Micra Framework. The goal is to provide a powerful event management system that supports event bubbling, propagation control, wildcard listeners, and bulk dispatching, ensuring flexibility and scalability across different Micra applications.
+This RFC proposes the development of a robust, type-safe Event Emitter API for the Micra Framework. The goal is to provide a powerful event management system that supports event bubbling, propagation control, and wildcard listeners, ensuring flexibility and scalability across different Micra applications.
 
 ## **Problem Statement**
 
@@ -15,7 +15,6 @@ A dedicated Event Emitter API in the Micra Framework will:
 - Offer a **type-safe event system** ensuring developers can catch errors at compile time.
 - Support **event bubbling and propagation control**, similar to the DOM standard, allowing events to propagate through a defined hierarchy.
 - Provide **wildcard listeners** to capture multiple related events with a single handler.
-- Enable **bulk dispatching** for scenarios where multiple events need to be emitted simultaneously.
 - Integrate seamlessly with Micra’s modular system, enhancing cross-module communication.
 
 ## **Goals and Constraints**
@@ -24,7 +23,7 @@ A dedicated Event Emitter API in the Micra Framework will:
 
 - Implement a **flexible and extensible** Event Emitter API.
 - Ensure **type safety** using TypeScript.
-- Provide features like **event bubbling, propagation control, wildcard listeners, and bulk dispatching**.
+- Provide features like **event bubbling, propagation control, and wildcard listeners**.
 - Maintain **consistency with Micra’s modular architecture**.
 
 ### Constraints:
@@ -86,7 +85,7 @@ These examples illustrate how the DOM API manages event creation, listening, dis
 
 ##### Limitations
 
-While the DOM `EventTarget` API provides robust event handling, it does not support type-safe event definitions, making it challenging to catch errors at compile time. Additionally, it lacks wildcard listeners for dynamically handling multiple related events and does not offer built-in support for bulk event dispatching. For Micra, these features are essential for a modern, modular framework, highlighting the need for a more flexible and type-safe Event Emitter API.
+While the DOM `EventTarget` API provides robust event handling, it does not support type-safe event definitions, making it challenging to catch errors at compile time. Additionally, it lacks wildcard listeners for dynamically handling multiple related events. For Micra, these features are essential for a modern, modular framework, highlighting the need for a more flexible and type-safe Event Emitter API.
 
 #### Node.js `EventEmitter`
 
@@ -256,12 +255,10 @@ OnPublish?.Invoke(this, EventArgs.Empty);
 
 ##### Limitations
 
-C#'s EventHandler mechanism focuses on delegates and lacks event bubbling, wildcard listeners, and bulk dispatching, making it less flexible compared to the needs of Micra's Event Emitter API.
-
+C#'s EventHandler mechanism focuses on delegates and lacks event bubbling and wildcard listeners, making it less flexible compared to the needs of Micra's Event Emitter API.
 #### **Bevy Event System (Rust)**
 
-Bevy provides a strongly typed event system designed for game development, focusing on performance and bulk dispatching. Events are defined as simple structs, registered as resources, emitted through the `Events<T>` resource, and handled by systems using `EventReader`.
-
+Bevy provides a strongly typed event system designed for game development, focusing on performance. Events are defined as simple structs, registered as resources, emitted through the `Events<T>` resource, and handled by systems using `EventReader`.
 ##### Defining Events
 
 ```rust
@@ -294,7 +291,7 @@ Bevy’s event system lacks event bubbling, wildcard listeners, and propagation 
 
 ### **Summary**
 
-This API design option proposes an Event Target-inspired API for the Micra Framework. Built with TypeScript, it offers a familiar yet modern event management system, featuring type-safe event definitions, event bubbling, propagation control, wildcard listeners, and bulk dispatching.
+This API design option proposes an Event Target-inspired API for the Micra Framework. Built with TypeScript, it offers a familiar yet modern event management system, featuring type-safe event definitions, event bubbling, propagation control, and wildcard listeners.
 
 ### **Problem Statement**
 
