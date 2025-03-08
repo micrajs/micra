@@ -258,8 +258,7 @@ OnPublish?.Invoke(this, EventArgs.Empty);
 C#'s EventHandler mechanism focuses on delegates and lacks event bubbling and wildcard listeners, making it less flexible compared to the needs of Micra's Event Emitter API.
 #### **Bevy Event System (Rust)**
 
-Bevy provides a strongly typed event system designed for game development, and focusing on performance. Events are defined as simple structs, registered as resources, emitted through the `Events<T>` resource, and handled by systems using `EventReader`.
-
+Bevy provides a strongly typed event system designed for game development, focusing on performance. Events are defined as simple structs, registered as resources, emitted through the `Events<T>` resource, and handled by systems using `EventReader`.
 ##### Defining Events
 
 ```rust
