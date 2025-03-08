@@ -8,7 +8,7 @@
 
 > **isRecord**(`maybeRecord`): `maybeRecord is Record<any, any>`
 
-Defined in: [isRecord.ts:15](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/utilities/src/isRecord.ts#L15)
+Defined in: [isRecord.ts:15](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/utilities/src/isRecord.ts#L15)
 
 Checks if the given value is a record (plain object) and not null, undefined, or an array.
 

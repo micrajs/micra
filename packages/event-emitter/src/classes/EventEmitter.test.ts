@@ -7,7 +7,8 @@ describe('EventEmitter', () => {
   it('adds an event listener at capturing phase if options is true', () => {
     const listener = vi.fn();
     const root = new EventEmitter();
-    const child = new EventEmitter().reparent(root);
+    const child = new EventEmitter();
+    root.reparent(child);
 
     root.addEventListener('test', listener, true);
     child.dispatchEvent(new Event('test'));
@@ -39,8 +40,10 @@ describe('EventEmitter', () => {
     const listener = vi.fn();
     const event = new Event('test');
     const root = new EventEmitter();
-    const child = new EventEmitter().reparent(root);
-    const target = new EventEmitter().reparent(child);
+    const child = new EventEmitter();
+    const target = new EventEmitter();
+    root.reparent(child);
+    child.reparent(target);
     root.addEventListener('test', () => listener('root capturing'), {
       capture: true,
     });
@@ -69,8 +72,10 @@ describe('EventEmitter', () => {
     const listener = vi.fn();
     const event = new Event('test');
     const root = new EventEmitter();
-    const child = new EventEmitter().reparent(root);
-    const target = new EventEmitter().reparent(child);
+    const child = new EventEmitter();
+    const target = new EventEmitter();
+    root.reparent(child);
+    child.reparent(target);
     root.addEventListener('test', () => listener('root capturing'), {
       capture: true,
     });
@@ -136,8 +141,10 @@ describe('EventEmitter', () => {
   it('only calls target listeners for a non-bubbling event', () => {
     const listener = vi.fn();
     const root = new EventEmitter();
-    const child = new EventEmitter().reparent(root);
-    const target = new EventEmitter().reparent(child);
+    const child = new EventEmitter();
+    const target = new EventEmitter();
+    root.reparent(child);
+    child.reparent(target);
     const event = new Event('test', {bubbles: false});
     root.addEventListener('test', () => listener('root listener'), {
       capture: true,

@@ -6,7 +6,7 @@
 
 # Interface: ErrorSerializerOptions
 
-Defined in: [error/index.d.ts:54](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/core/error/index.d.ts#L54)
+Defined in: [error/index.d.ts:54](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L54)
 
 Defines options for serializing an error.
 
@@ -16,7 +16,7 @@ Defines options for serializing an error.
 
 > `optional` **depth**: `number`
 
-Defined in: [error/index.d.ts:59](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/core/error/index.d.ts#L59)
+Defined in: [error/index.d.ts:59](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L59)
 
 The maximum depth for serializing nested errors to prevent infinite recursion.
 
@@ -26,6 +26,6 @@ The maximum depth for serializing nested errors to prevent infinite recursion.
 
 > `optional` **includeStack**: `boolean`
 
-Defined in: [error/index.d.ts:56](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/core/error/index.d.ts#L56)
+Defined in: [error/index.d.ts:56](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L56)
 
 Whether to include the stack trace in serialization output.
