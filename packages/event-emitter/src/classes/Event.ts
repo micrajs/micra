@@ -43,10 +43,8 @@ export class Event<
     return this[EVENT_PHASE];
   }
 
-  constructor(
-    type: Type,
-    {bubbles = true, cancelable = true, detail = {} as Detail}: EventOptions<Detail> = {},
-  ) {
+  constructor(type: Type, options: EventOptions<Detail> = {}) {
+    const {bubbles = true, cancelable = true, detail = {} as Detail} = options;
     this.bubbles = bubbles;
     this.cancelable = cancelable;
     this.detail = detail;

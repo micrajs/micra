@@ -6,7 +6,7 @@
 
 # Class: ApplicationError
 
-Defined in: [classes/ApplicationError.ts:9](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/error/src/classes/ApplicationError.ts#L9)
+Defined in: [classes/ApplicationError.ts:9](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/error/src/classes/ApplicationError.ts#L9)
 
 Represents a structured error in the application. Supports metadata, nested error aggregation, and serialization.
 
@@ -24,7 +24,7 @@ Represents a structured error in the application. Supports metadata, nested erro
 
 > **new ApplicationError**(`messageOrDetails`): [`ApplicationError`](ApplicationError.md)
 
-Defined in: [classes/ApplicationError.ts:43](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/error/src/classes/ApplicationError.ts#L43)
+Defined in: [classes/ApplicationError.ts:43](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/error/src/classes/ApplicationError.ts#L43)
 
 Creates a new instance of ApplicationError.
 
@@ -66,7 +66,7 @@ throw new ApplicationError({
 
 > `optional` **detail**: `string`
 
-Defined in: [classes/ApplicationError.ts:10](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/error/src/classes/ApplicationError.ts#L10)
+Defined in: [classes/ApplicationError.ts:10](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/error/src/classes/ApplicationError.ts#L10)
 
 A human-readable explanation of the error.
 
@@ -80,7 +80,7 @@ A human-readable explanation of the error.
 
 > **errors**: `ApplicationError`[] = `[]`
 
-Defined in: [classes/ApplicationError.ts:16](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/error/src/classes/ApplicationError.ts#L16)
+Defined in: [classes/ApplicationError.ts:16](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/error/src/classes/ApplicationError.ts#L16)
 
 A collection of nested errors related to this error.
 
@@ -94,7 +94,7 @@ A collection of nested errors related to this error.
 
 > `optional` **instance**: `string`
 
-Defined in: [classes/ApplicationError.ts:11](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/error/src/classes/ApplicationError.ts#L11)
+Defined in: [classes/ApplicationError.ts:11](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/error/src/classes/ApplicationError.ts#L11)
 
 A URI reference identifying the specific instance of the error.
 
@@ -108,7 +108,7 @@ A URI reference identifying the specific instance of the error.
 
 > `optional` **metadata**: `Record`\<`string`, `any`\>
 
-Defined in: [classes/ApplicationError.ts:12](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/error/src/classes/ApplicationError.ts#L12)
+Defined in: [classes/ApplicationError.ts:12](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/error/src/classes/ApplicationError.ts#L12)
 
 Additional metadata related to the error.
 
@@ -122,7 +122,7 @@ Additional metadata related to the error.
 
 > **status**: `number`
 
-Defined in: [classes/ApplicationError.ts:13](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/error/src/classes/ApplicationError.ts#L13)
+Defined in: [classes/ApplicationError.ts:13](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/error/src/classes/ApplicationError.ts#L13)
 
 HTTP status code associated with the error.
 
@@ -136,7 +136,7 @@ HTTP status code associated with the error.
 
 > **title**: `string`
 
-Defined in: [classes/ApplicationError.ts:14](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/error/src/classes/ApplicationError.ts#L14)
+Defined in: [classes/ApplicationError.ts:14](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/error/src/classes/ApplicationError.ts#L14)
 
 A short, human-readable title describing the error type.
 
@@ -150,7 +150,7 @@ A short, human-readable title describing the error type.
 
 > `optional` **type**: `string`
 
-Defined in: [classes/ApplicationError.ts:15](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/error/src/classes/ApplicationError.ts#L15)
+Defined in: [classes/ApplicationError.ts:15](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/error/src/classes/ApplicationError.ts#L15)
 
 A URI reference identifying the error type.
 
@@ -166,7 +166,7 @@ A URI reference identifying the error type.
 
 > **get** **hasErrors**(): `boolean`
 
-Defined in: [classes/ApplicationError.ts:20](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/error/src/classes/ApplicationError.ts#L20)
+Defined in: [classes/ApplicationError.ts:20](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/error/src/classes/ApplicationError.ts#L20)
 
 Indicates whether there are any aggregated errors.
 
@@ -184,7 +184,7 @@ Indicates whether there are any aggregated errors.
 
 > **add**(`maybeList`?, ...`rest`?): `void`
 
-Defined in: [classes/ApplicationError.ts:61](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/error/src/classes/ApplicationError.ts#L61)
+Defined in: [classes/ApplicationError.ts:60](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/error/src/classes/ApplicationError.ts#L60)
 
 Adds one or more errors to the error aggregation.
 Converts raw `Error` instances to `ApplicationError` for consistency.
@@ -213,7 +213,7 @@ Converts raw `Error` instances to `ApplicationError` for consistency.
 
 > **clear**(): `void`
 
-Defined in: [classes/ApplicationError.ts:67](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/error/src/classes/ApplicationError.ts#L67)
+Defined in: [classes/ApplicationError.ts:66](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/error/src/classes/ApplicationError.ts#L66)
 
 Clears all aggregated errors.
 
@@ -231,7 +231,7 @@ Clears all aggregated errors.
 
 > **toJSON**(`options`): `SerializedError`
 
-Defined in: [classes/ApplicationError.ts:71](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/error/src/classes/ApplicationError.ts#L71)
+Defined in: [classes/ApplicationError.ts:70](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/error/src/classes/ApplicationError.ts#L70)
 
 Serializes the error into a structured JSON format.
 

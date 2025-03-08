@@ -128,8 +128,14 @@ export class EventEmitter<EventMap extends Record<string, any> = Record<string, 
     return !event.defaultPrevented;
   }
 
-  reparent(parent: EventEmitter<any>): this {
-    this[EVENT_EMITTER_PARENT] = parent;
+  /**
+   * Reparents a child event emitter to this event emitter. This will allow the child to bubble events up to this event emitter.
+   *
+   * @param child Child event emitter
+   * @returns This event emitter.
+   */
+  reparent(child: Micra.EventEmitter<any> | EventEmitter): this {
+    (child as EventEmitter)[EVENT_EMITTER_PARENT] = this;
     return this;
   }
 

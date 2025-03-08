@@ -6,7 +6,7 @@
 
 # Interface: SerializedError
 
-Defined in: [error/index.d.ts:129](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/core/error/index.d.ts#L129)
+Defined in: [error/index.d.ts:129](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L129)
 
 Represents a serialized version of an error, including stack trace and nested errors.
 
@@ -20,7 +20,7 @@ Represents a serialized version of an error, including stack trace and nested er
 
 > `optional` **detail**: `string`
 
-Defined in: [error/index.d.ts:96](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/core/error/index.d.ts#L96)
+Defined in: [error/index.d.ts:96](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L96)
 
 A human-readable explanation of the error.
 Gives more details on why the error occurred.
@@ -45,7 +45,7 @@ Gives more details on why the error occurred.
 
 > `optional` **errors**: [`SerializedError`](SerializedError.md)[]
 
-Defined in: [error/index.d.ts:134](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/core/error/index.d.ts#L134)
+Defined in: [error/index.d.ts:134](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L134)
 
 Serialized representation of nested errors.
 
@@ -55,7 +55,7 @@ Serialized representation of nested errors.
 
 > `optional` **instance**: `string`
 
-Defined in: [error/index.d.ts:105](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/core/error/index.d.ts#L105)
+Defined in: [error/index.d.ts:105](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L105)
 
 A URI reference identifying the specific instance of the error.
 Useful for providing a traceable reference to a failing request or resource.
@@ -80,7 +80,7 @@ Useful for providing a traceable reference to a failing request or resource.
 
 > `optional` **metadata**: `Record`\<`string`, `any`\>
 
-Defined in: [error/index.d.ts:123](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/core/error/index.d.ts#L123)
+Defined in: [error/index.d.ts:123](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L123)
 
 Additional metadata related to the error.
 Can be used to store extra context, such as validation fields or debug information.
@@ -105,7 +105,7 @@ Can be used to store extra context, such as validation fields or debug informati
 
 > `optional` **stack**: `string`
 
-Defined in: [error/index.d.ts:131](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/core/error/index.d.ts#L131)
+Defined in: [error/index.d.ts:131](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L131)
 
 Stack trace of the error, if available.
 
@@ -115,7 +115,7 @@ Stack trace of the error, if available.
 
 > **status**: `number`
 
-Defined in: [error/index.d.ts:77](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/core/error/index.d.ts#L77)
+Defined in: [error/index.d.ts:77](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L77)
 
 HTTP status code representing the error.
 Used to indicate the nature of the failure.
@@ -150,7 +150,7 @@ Used to indicate the nature of the failure.
 
 > **title**: `string`
 
-Defined in: [error/index.d.ts:87](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/core/error/index.d.ts#L87)
+Defined in: [error/index.d.ts:87](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L87)
 
 A short, human-readable title describing the error type.
 Should provide a clear summary of the error.
@@ -179,7 +179,7 @@ Should provide a clear summary of the error.
 
 > `optional` **type**: `string`
 
-Defined in: [error/index.d.ts:114](https://github.com/micrajs/micra/blob/de3b06bdb3a3f670052250f7e0da7885aa7e590a/packages/core/error/index.d.ts#L114)
+Defined in: [error/index.d.ts:114](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L114)
 
 A URI reference identifying the type of error.
 Can point to documentation or predefined problem types.

@@ -29,8 +29,16 @@ class CustomServiceProvider implements Micra.ServiceProvider {
 
 ## Interfaces
 
+- [AddEventListenerOptions](interfaces/AddEventListenerOptions.md)
 - [ApplicationError](interfaces/ApplicationError.md)
 - [ErrorDetail](interfaces/ErrorDetail.md)
 - [ErrorOptions](interfaces/ErrorOptions.md)
 - [ErrorSerializerOptions](interfaces/ErrorSerializerOptions.md)
+- [Event](interfaces/Event.md)
+- [EventEmitter](interfaces/EventEmitter.md)
+- [EventListener](interfaces/EventListener.md)
 - [SerializedError](interfaces/SerializedError.md)
+
+## Type Aliases
+
+- [MatchGlobEvents](type-aliases/MatchGlobEvents.md)
