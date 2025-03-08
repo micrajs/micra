@@ -15,7 +15,7 @@ The `EventEmitter` class in `@micra/event-emitter` provides a robust system for 
 Before using event listeners, you need to import and instantiate an `EventEmitter`.
 
 ```ts
-import {EventEmitter} from '@micra/event-emitter';
+import {EventEmitter} from '@micra/event-emitter/EventEmitter';
 
 const emitter = new EventEmitter();
 ```
