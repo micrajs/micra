@@ -37,16 +37,20 @@ suite.add('@micra/event-emitter: dispatch event to multiple wildcard listeners',
 
 suite.add('@micra/event-emitter: propagation chain', () => {
   const chain = [];
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 5; i++) {
     // Create a new emitter and add it to the chain.
     const emitter = new EventEmitter();
-    const parent = chain[chain.length - 1];
-    if (parent) emitter.reparent(parent);
-    chain.push(emitter);
 
     // Add a listener on the first and last emitter.
     emitter.addEventListener('test', () => {});
     emitter.addEventListener('test', () => {}, true);
+
+    // Assign parent to the emitter
+    const parent = chain[chain.length - 1];
+    if (parent) parent.addChild(emitter);
+
+    // Add the emitter to the chain.
+    chain.push(emitter);
   }
 
   // Dispatch the event from the bottom of the chain.

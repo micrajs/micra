@@ -129,14 +129,13 @@ Removes a previously added event listener for a specific event type.
 
 ***
 
-### reparent()
+### addChild()
 
-> **reparent**(`child`): `this`
+> **addChild**(`child`): `this`
 
 Defined in: [classes/EventEmitter.ts:137](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/EventEmitter.ts#L137)
 
-Reparents a child event emitter to this event emitter. This will allow the child to bubble events up to this event emitter.
-
+Adds a child event emitter to this event emitter. This will allow the child to bubble events up to this event emitter.
 #### Parameters
 
 ##### child
