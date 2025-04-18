@@ -26,7 +26,7 @@ const childEmitter = new EventEmitter();
 For events to bubble, child emitters need to be linked to a parent.
 
 ```ts
-parentEmitter.reparent(childEmitter);
+parentEmitter.addChild(childEmitter);
 ```
 
 ### Step 3: Register Listeners at Different Levels

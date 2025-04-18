@@ -134,7 +134,7 @@ export class EventEmitter<EventMap extends Record<string, any> = Record<string, 
    * @param child Child event emitter
    * @returns This event emitter.
    */
-  reparent(child: Micra.EventEmitter<any> | EventEmitter): this {
+  addChild(child: Micra.EventEmitter<any> | EventEmitter): this {
     (child as EventEmitter)[EVENT_EMITTER_PARENT] = this;
     return this;
   }

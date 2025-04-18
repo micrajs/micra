@@ -8,7 +8,7 @@ describe('EventEmitter', () => {
     const listener = vi.fn();
     const root = new EventEmitter();
     const child = new EventEmitter();
-    root.reparent(child);
+    root.addChild(child);
 
     root.addEventListener('test', listener, true);
     child.dispatchEvent(new Event('test'));
@@ -42,8 +42,8 @@ describe('EventEmitter', () => {
     const root = new EventEmitter();
     const child = new EventEmitter();
     const target = new EventEmitter();
-    root.reparent(child);
-    child.reparent(target);
+    root.addChild(child);
+    child.addChild(target);
     root.addEventListener('test', () => listener('root capturing'), {
       capture: true,
     });
@@ -74,8 +74,8 @@ describe('EventEmitter', () => {
     const root = new EventEmitter();
     const child = new EventEmitter();
     const target = new EventEmitter();
-    root.reparent(child);
-    child.reparent(target);
+    root.addChild(child);
+    child.addChild(target);
     root.addEventListener('test', () => listener('root capturing'), {
       capture: true,
     });
@@ -143,8 +143,8 @@ describe('EventEmitter', () => {
     const root = new EventEmitter();
     const child = new EventEmitter();
     const target = new EventEmitter();
-    root.reparent(child);
-    child.reparent(target);
+    root.addChild(child);
+    child.addChild(target);
     const event = new Event('test', {bubbles: false});
     root.addEventListener('test', () => listener('root listener'), {
       capture: true,
