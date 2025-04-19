@@ -47,6 +47,39 @@ importers:
 
   packages/core: {}
 
+  packages/environment:
+    devDependencies:
+      '@micra/core':
+        specifier: workspace:^0.0.0
+        version: link:../core
+      '@size-limit/preset-small-lib':
+        specifier: ^11.1.2
+        version: 11.2.0(size-limit@11.2.0)
+      '@types/benchmark':
+        specifier: ^2.1.5
+        version: 2.1.5
+      '@vitest/coverage-v8':
+        specifier: ^3.0.4
+        version: 3.1.1(vitest@3.1.1(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1))
+      benchmark:
+        specifier: ^2.1.4
+        version: 2.1.4
+      npm-run-all:
+        specifier: ^4.1.5
+        version: 4.1.5
+      size-limit:
+        specifier: ^11.1.4
+        version: 11.2.0
+      vite:
+        specifier: ^6.0.11
+        version: 6.3.2(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1)
+      vite-plugin-dts:
+        specifier: ^4.5.0
+        version: 4.5.3(@types/node@22.14.1)(rollup@4.40.0)(typescript@5.8.3)(vite@6.3.2(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1))
+      vitest:
+        specifier: ^3.0.4
+        version: 3.1.1(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1)
+
   packages/error:
     dependencies:
       '@micra/utilities':
