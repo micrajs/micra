@@ -1,4 +1,11 @@
 import type {
+  EnvironmentVariableData,
+  EnvironmentDefinition,
+  EnvironmentSerializeOptions,
+  EnvironmentEventMap,
+  Environment,
+} from './environment';
+import type {
   ApplicationError,
   ErrorSerializerOptions,
   ErrorDetail,
@@ -36,6 +43,12 @@ import type {
  */
 export namespace Micra {
   export {
+    // Environment API
+    EnvironmentVariableData,
+    EnvironmentDefinition,
+    EnvironmentSerializeOptions,
+    EnvironmentEventMap,
+    Environment,
     // Error API
     ApplicationError,
     ErrorSerializerOptions,
@@ -81,6 +94,11 @@ declare global {
    * ```
    */
   namespace Application {
-    // Add app-specific types and interfaces here
+    /**
+     * Defines the environment variables available in the application.
+     */
+    interface EnvironmentVariables {
+      //
+    }
   }
 }
