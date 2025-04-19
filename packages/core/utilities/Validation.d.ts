@@ -1,9 +1,7 @@
 // Based on https://github.com/standard-schema/standard-schema
 
 /** The result interface of the validate function. */
-export type ValidationResult<Output> =
-  | ValidationSuccessResult<Output>
-  | ValidationFailureResult;
+export type ValidationResult<Output> = ValidationSuccessResult<Output> | ValidationFailureResult;
 
 /** The result interface if validation succeeds. */
 export interface ValidationSuccessResult<Output> {

@@ -5,13 +5,7 @@ import type {ValidationResult} from '../utilities/Validation';
 /**
  * Represents the allowed primitive types for environment variable values.
  */
-export type EnvironmentVariableData =
-  | string
-  | number
-  | boolean
-  | symbol
-  | null
-  | undefined;
+export type EnvironmentVariableData = string | number | boolean | symbol | null | undefined;
 
 /**
  * Defines metadata and behavior for a single environment variable.
@@ -179,10 +173,7 @@ export interface Environment<
    * console.log(`API URL: ${apiUrl}`); // Will log the default if https://default.api.com is not set.
    * ```
    */
-  get<Name extends keyof Variables>(
-    name: Name,
-    fallback: Variables[Name],
-  ): Variables[Name];
+  get<Name extends keyof Variables>(name: Name, fallback: Variables[Name]): Variables[Name];
 
   /**
    * Checks whether a variable has been defined and has a value.
@@ -253,9 +244,7 @@ export interface Environment<
     Defs extends Partial<{
       [K in keyof Variables]: EnvironmentDefinition<Variables[K]>;
     }>,
-  >(
-    key: Defs,
-  ): void;
+  >(key: Defs): void;
 
   /**
    * Sets the value of a single variable.
