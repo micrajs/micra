@@ -104,20 +104,7 @@ export interface EnvironmentEventMap {
   /**
    * Emitted when a variable is changed.
    */
-  'environment:change': {
-    /**
-     * The name of the variable that changed.
-     */
-    name: string;
-    /**
-     * The new value of the variable.
-     */
-    value: unknown;
-    /**
-     * The previous value of the variable.
-     */
-    previousValue: unknown;
-  };
+  'environment:changed': void;
 
   /**
    * Emitted when a validation or transformation error occurs.

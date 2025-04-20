@@ -1046,8 +1046,7 @@ export interface EnvironmentSerializeOptions {
 
 // Events emitted by the environment
 export interface EnvironmentEventMap {
-  'environment:change': {name: string; value: unknown};
-  [`environment:change:${string}`]: {name: string; value: unknown};
+  'environment:changed': {name: string; value: unknown};
   error: {name: string; error: ApplicationError};
 }
 
@@ -1178,7 +1177,7 @@ console.log(testEnv.get('PORT')); // 3001
 #### Event Listeners
 
 ```ts
-env.addEventListener('environment:change', (event) => {
+env.addEventListener('environment:changed', (event) => {
   console.log(`Changed ${event.detail.name} to`, event.detail.value);
 });
 
