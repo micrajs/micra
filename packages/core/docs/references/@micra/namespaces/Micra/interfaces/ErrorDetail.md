@@ -1,12 +1,12 @@
-[**@micra/core**](../../../README.md)
+[**@micra/core**](../../../../README.md)
 
 ***
 
-[@micra/core](../../../README.md) / [Micra](../README.md) / ErrorDetail
+[@micra/core](../../../../README.md) / [Micra](../README.md) / ErrorDetail
 
 # Interface: ErrorDetail
 
-Defined in: [error/index.d.ts:66](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L66)
+Defined in: [error/index.d.ts:66](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/error/index.d.ts#L66)
 
 Represents the core structure of an error message.
 This ensures consistency and predictability in error reporting.
@@ -21,7 +21,7 @@ This ensures consistency and predictability in error reporting.
 
 > `optional` **detail**: `string`
 
-Defined in: [error/index.d.ts:96](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L96)
+Defined in: [error/index.d.ts:96](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/error/index.d.ts#L96)
 
 A human-readable explanation of the error.
 Gives more details on why the error occurred.
@@ -42,7 +42,7 @@ Gives more details on why the error occurred.
 
 > `optional` **instance**: `string`
 
-Defined in: [error/index.d.ts:105](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L105)
+Defined in: [error/index.d.ts:105](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/error/index.d.ts#L105)
 
 A URI reference identifying the specific instance of the error.
 Useful for providing a traceable reference to a failing request or resource.
@@ -63,7 +63,7 @@ Useful for providing a traceable reference to a failing request or resource.
 
 > `optional` **metadata**: `Record`\<`string`, `any`\>
 
-Defined in: [error/index.d.ts:123](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L123)
+Defined in: [error/index.d.ts:123](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/error/index.d.ts#L123)
 
 Additional metadata related to the error.
 Can be used to store extra context, such as validation fields or debug information.
@@ -84,7 +84,7 @@ Can be used to store extra context, such as validation fields or debug informati
 
 > **status**: `number`
 
-Defined in: [error/index.d.ts:77](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L77)
+Defined in: [error/index.d.ts:77](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/error/index.d.ts#L77)
 
 HTTP status code representing the error.
 Used to indicate the nature of the failure.
@@ -115,7 +115,7 @@ Used to indicate the nature of the failure.
 
 > **title**: `string`
 
-Defined in: [error/index.d.ts:87](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L87)
+Defined in: [error/index.d.ts:87](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/error/index.d.ts#L87)
 
 A short, human-readable title describing the error type.
 Should provide a clear summary of the error.
@@ -140,7 +140,7 @@ Should provide a clear summary of the error.
 
 > `optional` **type**: `string`
 
-Defined in: [error/index.d.ts:114](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/core/error/index.d.ts#L114)
+Defined in: [error/index.d.ts:114](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/error/index.d.ts#L114)
 
 A URI reference identifying the type of error.
 Can point to documentation or predefined problem types.

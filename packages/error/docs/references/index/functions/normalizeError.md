@@ -8,7 +8,7 @@
 
 > **normalizeError**(`value`): `ApplicationError`
 
-Defined in: [utilities/normalizeError.ts:22](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/error/src/utilities/normalizeError.ts#L22)
+Defined in: [utilities/normalizeError.ts:22](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/error/src/utilities/normalizeError.ts#L22)
 
 Converts a given value into an `ApplicationError`.
 If the value is already an `ApplicationError`, it is returned as-is.

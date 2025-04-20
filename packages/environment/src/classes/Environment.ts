@@ -39,11 +39,11 @@ export class Environment<
       });
     }
   }
-  get<Name extends keyof Variables>(name: Name, fallback?: Variables[Name]): Variables[Name] {
-    return (this._values[name] ??
-      this._parent?.get(name, fallback) ??
+  get<Key extends keyof Variables>(key: Key, fallback?: Variables[Key]): Variables[Key] {
+    return (this._values[key] ??
+      this._parent?.get(key, fallback) ??
       fallback ??
-      this._definitions[name]?.default) as Variables[Name];
+      this._definitions[key]?.default) as Variables[Key];
   }
   has<Key extends keyof Variables>(key: Key): boolean {
     return (

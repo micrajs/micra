@@ -6,13 +6,17 @@
 
 # Class: Event\<Type, Detail\>
 
-Defined in: [classes/Event.ts:10](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L10)
+Defined in: [classes/Event.ts:10](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L10)
 
 ## Type Parameters
 
-• **Type** *extends* `string` \| `number` \| `symbol` = `string`
+### Type
 
-• **Detail** *extends* `Record`\<`any`, `any`\> = \{\}
+`Type` *extends* `string` \| `number` \| `symbol` = `string`
+
+### Detail
+
+`Detail` *extends* `Record`\<`any`, `any`\> = \{ \}
 
 ## Implements
 
@@ -20,11 +24,11 @@ Defined in: [classes/Event.ts:10](https://github.com/micrajs/micra/blob/3b7677b1
 
 ## Constructors
 
-### new Event()
+### Constructor
 
-> **new Event**\<`Type`, `Detail`\>(`type`, `options`): [`Event`](Event.md)\<`Type`, `Detail`\>
+> **new Event**\<`Type`, `Detail`\>(`type`, `options`): `Event`\<`Type`, `Detail`\>
 
-Defined in: [classes/Event.ts:46](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L46)
+Defined in: [classes/Event.ts:46](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L46)
 
 #### Parameters
 
@@ -38,7 +42,7 @@ Defined in: [classes/Event.ts:46](https://github.com/micrajs/micra/blob/3b7677b1
 
 #### Returns
 
-[`Event`](Event.md)\<`Type`, `Detail`\>
+`Event`\<`Type`, `Detail`\>
 
 ## Properties
 
@@ -46,7 +50,7 @@ Defined in: [classes/Event.ts:46](https://github.com/micrajs/micra/blob/3b7677b1
 
 > **bubbles**: `boolean`
 
-Defined in: [classes/Event.ts:22](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L22)
+Defined in: [classes/Event.ts:22](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L22)
 
 Indicates whether the event bubbles up through the event chain.
 
@@ -60,7 +64,7 @@ Indicates whether the event bubbles up through the event chain.
 
 > **cancelable**: `boolean` = `false`
 
-Defined in: [classes/Event.ts:23](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L23)
+Defined in: [classes/Event.ts:23](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L23)
 
 Indicates whether the event can be canceled using `preventDefault()`.
 
@@ -74,7 +78,7 @@ Indicates whether the event can be canceled using `preventDefault()`.
 
 > **defaultPrevented**: `boolean` = `false`
 
-Defined in: [classes/Event.ts:24](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L24)
+Defined in: [classes/Event.ts:24](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L24)
 
 Indicates whether `preventDefault()` was called on the event.
 
@@ -88,7 +92,7 @@ Indicates whether `preventDefault()` was called on the event.
 
 > **detail**: `Detail`
 
-Defined in: [classes/Event.ts:21](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L21)
+Defined in: [classes/Event.ts:21](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L21)
 
 Additional data related to the event, providing context for event handlers.
 
@@ -102,7 +106,7 @@ Additional data related to the event, providing context for event handlers.
 
 > **immediatePropagationStopped**: `boolean` = `false`
 
-Defined in: [classes/Event.ts:27](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L27)
+Defined in: [classes/Event.ts:27](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L27)
 
 Indicates whether `stopImmediatePropagation()` was called on the event.
 
@@ -116,7 +120,7 @@ Indicates whether `stopImmediatePropagation()` was called on the event.
 
 > **propagationStopped**: `boolean` = `false`
 
-Defined in: [classes/Event.ts:28](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L28)
+Defined in: [classes/Event.ts:28](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L28)
 
 Indicates whether `stopPropagation()` was called, halting the event’s propagation.
 
@@ -130,7 +134,7 @@ Indicates whether `stopPropagation()` was called, halting the event’s propagat
 
 > **target**: `null` \| `EventEmitter`\<`any`\> = `null`
 
-Defined in: [classes/Event.ts:25](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L25)
+Defined in: [classes/Event.ts:25](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L25)
 
 The original `EventEmitter` that dispatched the event.
 
@@ -144,7 +148,7 @@ The original `EventEmitter` that dispatched the event.
 
 > **timeStamp**: `number`
 
-Defined in: [classes/Event.ts:26](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L26)
+Defined in: [classes/Event.ts:26](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L26)
 
 The time when the event was created, in milliseconds.
 
@@ -158,7 +162,7 @@ The time when the event was created, in milliseconds.
 
 > **type**: `Type`
 
-Defined in: [classes/Event.ts:20](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L20)
+Defined in: [classes/Event.ts:20](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L20)
 
 The type of the event, indicating the specific event that occurred.
 
@@ -172,7 +176,7 @@ The type of the event, indicating the specific event that occurred.
 
 > `static` **AT\_TARGET**: `number` = `2`
 
-Defined in: [classes/Event.ts:17](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L17)
+Defined in: [classes/Event.ts:17](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L17)
 
 ***
 
@@ -180,7 +184,7 @@ Defined in: [classes/Event.ts:17](https://github.com/micrajs/micra/blob/3b7677b1
 
 > `static` **BUBBLING\_PHASE**: `number` = `3`
 
-Defined in: [classes/Event.ts:18](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L18)
+Defined in: [classes/Event.ts:18](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L18)
 
 ***
 
@@ -188,7 +192,7 @@ Defined in: [classes/Event.ts:18](https://github.com/micrajs/micra/blob/3b7677b1
 
 > `static` **CAPTURING\_PHASE**: `number` = `1`
 
-Defined in: [classes/Event.ts:16](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L16)
+Defined in: [classes/Event.ts:16](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L16)
 
 ***
 
@@ -196,7 +200,7 @@ Defined in: [classes/Event.ts:16](https://github.com/micrajs/micra/blob/3b7677b1
 
 > `static` **NONE**: `number` = `0`
 
-Defined in: [classes/Event.ts:15](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L15)
+Defined in: [classes/Event.ts:15](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L15)
 
 ## Accessors
 
@@ -206,7 +210,7 @@ Defined in: [classes/Event.ts:15](https://github.com/micrajs/micra/blob/3b7677b1
 
 > **get** **currentTarget**(): `null` \| `EventEmitter`\<`any`\>
 
-Defined in: [classes/Event.ts:38](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L38)
+Defined in: [classes/Event.ts:38](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L38)
 
 The `EventEmitter` currently processing the event.
 
@@ -226,7 +230,7 @@ The `EventEmitter` currently processing the event.
 
 > **get** **eventPhase**(): `number`
 
-Defined in: [classes/Event.ts:42](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L42)
+Defined in: [classes/Event.ts:42](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L42)
 
 The current phase of the event (e.g., capturing, at target, or bubbling).
 
@@ -244,7 +248,7 @@ The current phase of the event (e.g., capturing, at target, or bubbling).
 
 > **composedPath**(): `EventEmitter`\<`Record`\<`string`, `any`\>\>[]
 
-Defined in: [classes/Event.ts:69](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L69)
+Defined in: [classes/Event.ts:69](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L69)
 
 Returns an array representing the path the event follows through the event emitters.
 
@@ -262,7 +266,7 @@ Returns an array representing the path the event follows through the event emitt
 
 > **preventDefault**(): `void`
 
-Defined in: [classes/Event.ts:63](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L63)
+Defined in: [classes/Event.ts:63](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L63)
 
 Cancels the event’s default action if it is cancelable.
 
@@ -280,7 +284,7 @@ Cancels the event’s default action if it is cancelable.
 
 > **stopImmediatePropagation**(): `void`
 
-Defined in: [classes/Event.ts:58](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L58)
+Defined in: [classes/Event.ts:58](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L58)
 
 Stops the event from propagating and prevents other listeners on the same event from being executed.
 
@@ -298,7 +302,7 @@ Stops the event from propagating and prevents other listeners on the same event 
 
 > **stopPropagation**(): `void`
 
-Defined in: [classes/Event.ts:54](https://github.com/micrajs/micra/blob/3b7677b14fc2bb80e62464f4fbe424c9f2241a5a/packages/event-emitter/src/classes/Event.ts#L54)
+Defined in: [classes/Event.ts:54](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/Event.ts#L54)
 
 Prevents the event from propagating further in the event chain.
 
