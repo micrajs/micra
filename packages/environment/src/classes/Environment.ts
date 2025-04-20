@@ -103,7 +103,7 @@ export class Environment<
           throw error;
         }
         this._values[key] = nextValue;
-        this.dispatchEvent(new Event('environment:change'));
+        this.dispatchEvent(new Event('environment:changed'));
       }
     }
   }
@@ -134,13 +134,13 @@ export class Environment<
         this._values[key] = value;
         this._definitions[key] = {};
       }
-      this.dispatchEvent(new Event('environment:change'));
+      this.dispatchEvent(new Event('environment:changed'));
     }
   }
   unset<Key extends keyof Variables>(key: Key): void {
     if (this._definitions[key]) {
       delete this._values[key];
-      this.dispatchEvent(new Event('environment:change'));
+      this.dispatchEvent(new Event('environment:changed'));
     }
   }
   validate(): void {
