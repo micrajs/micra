@@ -3,125 +3,149 @@ import type {EventEmitter} from '../event-emitter';
 import type {ValidationResult} from '../utilities/Validation';
 
 /**
- * Represents the allowed primitive types for environment variable values.
+ * Represents valid environment variable values.
  */
-export type EnvironmentVariableData = string | number | boolean | symbol | null | undefined;
+export type EnvironmentVariableData =
+  | string
+  | number
+  | boolean
+  | symbol
+  | null
+  | undefined;
 
 /**
- * Defines metadata and behavior for a single environment variable.
+ * Defines the schema and behavior of an individual environment variable.
  *
- * @template Value The type of the environment variable's value.
+ * @template Value The expected type of the variable after transformation.
  */
 export interface EnvironmentDefinition<Value = EnvironmentVariableData> {
   /**
-   * A fallback value to use if the variable is not explicitly set.
+   * The default value used when no value is explicitly set.
+   *
+   * @example
+   * ```typescript
+   * {
+   *   default: 3000
+   * }
+   * ```
    */
   default?: Value;
 
   /**
-   * Indicates whether this variable is required.
-   * If `true`, validation will fail if the variable is not provided.
+   * Marks the variable as required. Will trigger validation if not set.
+   *
+   * @example
+   * ```typescript
+   * {
+   *   required: true
+   * }
+   * ```
    */
   required?: boolean;
 
   /**
-   * Marks the variable as sensitive.
-   * Sensitive variables may be excluded from serialization when calling `Environment.toJSON`.
+   * Marks the variable as sensitive. It will be excluded from serialized outputs unless explicitly included.
+   *
+   * @example
+   * ```typescript
+   * {
+   *   sensitive: true
+   * }
+   * ```
    */
   sensitive?: boolean;
 
   /**
-   * A transformation function to apply to the raw input value.
-   * Use this to coerce values into the desired type.
+   * Function to transform the raw input into the desired value type.
    *
-   * @param input The raw value to transform.
+   * @param input The raw input value.
    * @returns The transformed value.
    *
    * @example
-   * ```ts
-   * env.define('API_URL', {
-   *  transform: (input) => {
-   *    input = String(input);
-   *    return input.endsWith('/') ? input : `${input}/`;
-   *  },
-   * });
+   * ```typescript
+   * {
+   *   transform: (input) => parseInt(String(input), 10)
+   * }
+   * ```
    */
   transform?: (input: unknown) => Value;
 
   /**
-   * A validation function that determines whether a given value is acceptable.
+   * Function to validate the transformed value.
    *
    * @param value The value to validate.
-   * @returns `true` if the value is valid; otherwise `false`.
+   * @returns A validation result including the final value and any issues.
    *
    * @example
-   * ```ts
-   * env.define('PORT', {
-   *  validate: (value) => {
-   *    if (typeof value !== 'number') {
-   *      return {issues: [{message: 'Port must be a number'}]};
-   *    }
-   *
-   *    if (value < 1 || value > 65535) {
-   *     return {issues: [{message: 'Port must be between 1 and 65535'}]};
-   *    }
-   *
-   *    return {value};
-   *  },
-   * });
+   * ```typescript
+   * {
+   *   validate: (value) => ({
+   *     value,
+   *     issues: value > 10 ? [{ message: 'Must be 10 or less' }] : undefined
+   *   })
+   * }
+   * ```
    */
   validate?: (value: unknown) => ValidationResult<Value>;
 }
 
 /**
- * Options for customizing the output of `Environment.toJSON`.
+ * Options used when serializing the environment to an object.
  */
 export interface EnvironmentSerializeOptions {
   /**
-   * If `true`, includes sensitive variables in the output.
-   * Defaults to `false`.
+   * If true, includes sensitive variables in the output. Defaults to false.
+   *
+   * @example
+   * ```typescript
+   * env.toJSON({ includeSensitive: true });
+   * ```
    */
   includeSensitive?: boolean;
 
   /**
-   * An array of variable names to include in the output.
-   * If provided, only these variables will be serialized.
-   * If not provided, all variables will be included.
+   * List of variable names to include in the output. If omitted, all are included.
+   *
+   * @example
+   * ```typescript
+   * env.toJSON({ pick: ['API_URL', 'DEBUG'] });
+   * ```
    */
   pick?: string[];
 
   /**
-   * A list of variable names to exclude from the output.
-   * If provided, these variables will be omitted from the serialized object.
+   * List of variable names to exclude from the output.
+   *
+   * @example
+   * ```typescript
+   * env.toJSON({ omit: ['SECRET_KEY'] });
+   * ```
    */
   omit?: string[];
 }
 
 /**
- * Defines the shape of emitted events from the Environment API.
+ * Defines the events emitted by the environment.
  */
 export interface EnvironmentEventMap {
   /**
-   * Emitted when a variable is changed.
+   * Emitted whenever a variable is added, updated, or removed.
    */
   'environment:changed': void;
 
   /**
-   * Emitted when a validation or transformation error occurs.
+   * Emitted when an error occurs during transformation or validation.
    */
   error: {
-    /**
-     * The error thrown.
-     */
     error: ApplicationError;
   };
 }
 
 /**
- * The Environment interface provides a type-safe, reactive, and flexible API
- * for managing and validating environment variables in a modular application.
+ * Represents a structured, type-safe environment with schema-based definitions,
+ * runtime validation, transformation, and serialization support.
  *
- * @template Variables A map of variable names to their expected types.
+ * @template Variables The shape of the variable map for this environment.
  */
 export interface Environment<
   Variables extends Record<string, EnvironmentVariableData> = Record<
@@ -130,100 +154,103 @@ export interface Environment<
   >,
 > extends EventEmitter<EnvironmentEventMap> {
   /**
-   * Retrieves the value of a variable, or `undefined` if not set.
+   * Retrieves the value of a defined environment variable.
    *
-   * @param name The name of the variable to retrieve.
-   * @returns The value of the variable, or `undefined`.
+   * @template Key The name of the variable.
+   *
+   * @param key The name of the variable to retrieve.
+   * @returns The current value of the variable, or undefined if unset.
    *
    * @example
-   * ```ts
-   * const apiUrl = env.get('API_URL');
-   * if (apiUrl) {
-   *   console.log(`API URL: ${apiUrl}`);
-   * } else {
-   *   console.log('API URL is not set.');
-   * }
+   * ```typescript
+   * env.get('PORT'); // 3000
    * ```
    */
-  get<Name extends keyof Variables>(name: Name): Variables[Name] | undefined;
+  get<Key extends keyof Variables>(key: Key): Variables[Key] | undefined;
 
   /**
-   * Retrieves the value of a variable, or returns a fallback if not set.
+   * Retrieves the value of a defined variable, falling back to a default if unset.
    *
-   * @param name The name of the variable to retrieve.
-   * @param fallback A fallback value to return if the variable is not set.
-   * @returns The resolved value.
+   * @template Key The name of the variable.
+   *
+   * @param key The name of the variable to retrieve.
+   * @param fallback The fallback value if the variable is not set.
+   * @returns The current value or the fallback.
    *
    * @example
-   * ```ts
-   * const apiUrl = env.get('API_URL', 'https://default.api.com');
-   * console.log(`API URL: ${apiUrl}`); // Will log the default if https://default.api.com is not set.
+   * ```typescript
+   * env.get('PORT', 8080); // Uses 8080 if PORT is not set
    * ```
    */
-  get<Name extends keyof Variables>(name: Name, fallback: Variables[Name]): Variables[Name];
+  get<Key extends keyof Variables>(
+    key: Key,
+    fallback: Variables[Key],
+  ): Variables[Key];
 
   /**
-   * Checks whether a variable has been defined and has a value.
+   * Checks if a variable has been explicitly set.
    *
-   * @param name The variable name.
-   * @returns `true` if the variable is set, otherwise `false`.
+   * @template Key The name of the variable.
+   *
+   * @param key The variable name to check.
+   * @returns True if the variable has been set.
    *
    * @example
-   * ```ts
-   * if (env.has('API_KEY')) {
-   *   console.log('API_KEY is set.');
-   * }
+   * ```typescript
+   * env.has('DEBUG'); // true or false
+   * ```
    */
-  has(name: string): boolean;
+  has<Key extends keyof Variables>(key: Key): boolean;
 
   /**
-   * Checks whether a variable is missing.
-   * This is equivalent to `!has(name)`.
+   * Checks if a variable is missing (i.e., undefined and no default value).
    *
-   * @param name The variable name.
-   * @returns `true` if the variable is missing, otherwise `false`.
+   * @template Key The name of the variable.
+   *
+   * @param key The variable name to check.
+   * @returns True if the variable is missing.
    *
    * @example
-   * ```ts
-   * if (env.missing('API_KEY')) {
-   *   throw new Error('API_KEY is required but not set.');
-   * }
+   * ```typescript
+   * env.missing('API_URL'); // true if not defined and no default
+   * ```
    */
-  missing(name: string): boolean;
+  missing<Key extends keyof Variables>(key: Key): boolean;
 
   /**
-   * Defines metadata and rules for a single environment variable.
+   * Defines the schema and behavior for a single environment variable.
    *
-   * @param key The variable name.
-   * @param definition The environment variable definition.
+   * @template Key The name of the variable.
+   *
+   * @param key The name of the variable.
+   * @param definition The schema definition.
    *
    * @example
-   * ```ts
-   * env.define('API_URL', {
-   *   default: 'https://api.example.com',
+   * ```typescript
+   * env.define('PORT', {
+   *   default: 3000,
+   *   transform: (v) => parseInt(String(v), 10),
+   *   validate: (v) => ({ value: v, issues: v < 1024 ? [{ message: 'Too low' }] : undefined })
    * });
    * ```
    */
-  define<Name extends keyof Variables>(
-    key: Name,
-    definition: EnvironmentDefinition<Variables[Name]>,
+  define<Key extends keyof Variables>(
+    key: Key,
+    definition: EnvironmentDefinition<Variables[Key]>,
   ): void;
 
   /**
-   * Defines multiple environment variables at once.
+   * Defines multiple variables using a map of schema definitions.
+   *
+   * @template Defs The shape of the variable definitions.
    *
    * @param key A map of variable names to their definitions.
    *
    * @example
-   * ```ts
+   * ```typescript
    * env.define({
-   *   API_URL: {
-   *     default: 'https://api.example.com',
-   *   },
-   *   API_KEY: {
-   *     required: true,
-   *     sensitive: true,
-   *   },
+   *   API_URL: { required: true },
+   *   DEBUG: { default: false }
    * });
    * ```
    */
@@ -231,80 +258,77 @@ export interface Environment<
     Defs extends Partial<{
       [K in keyof Variables]: EnvironmentDefinition<Variables[K]>;
     }>,
-  >(key: Defs): void;
+  >(
+    key: Defs,
+  ): void;
 
   /**
-   * Sets the value of a single variable.
+   * Sets a single environment variable to a new value.
    *
-   * @param name The variable name.
-   * @param value The new value to set.
+   * @template Key The name of the variable.
    *
-   * @throws {ApplicationError} If any variables fail validation.
+   * @param key The name of the variable.
+   * @param value The value to assign.
+   *
+   * @throws {ApplicationError} If the variable is not defined or the value fails validation.
    *
    * @example
-   * ```ts
-   * env.set('API_URL', 'https://api.example.com');
+   * ```typescript
+   * env.set('PORT', 8080);
    * ```
    */
-  set<Name extends keyof Variables>(name: Name, value: Variables[Name]): void;
+  set<Key extends keyof Variables>(key: Key, value: Variables[Key]): void;
 
   /**
-   * Sets the values of multiple variables at once.
+   * Sets multiple environment variables in bulk.
    *
-   * @param partial A map of variable names to their values.
+   * @param partial An object mapping variable names to values.
    *
-   * @throws {ApplicationError} If any variables fail validation.
+   * @throws {ApplicationError} If any value fails validation.
    *
    * @example
-   * ```ts
+   * ```typescript
    * env.set({
-   *   API_URL: 'https://api.example.com',
-   *   API_KEY: 'my-secret-key',
+   *   DEBUG: true,
+   *   API_URL: 'https://example.com'
    * });
    * ```
    */
   set(partial: Partial<Variables>): void;
 
   /**
-   * Removes a variable from the environment.
+   * Removes the value of a defined environment variable.
    *
-   * @param name The name of the variable to remove.
+   * @param key The name of the variable to unset.
    *
    * @example
-   * ```ts
+   * ```typescript
    * env.unset('DEBUG');
    * ```
    */
-  unset(name: keyof Variables): void;
+  unset(key: keyof Variables): void;
 
   /**
-   * Validates all defined variables.
+   * Validates all defined variables against their schema.
    *
-   * @throws {ApplicationError} If any variable fails validation or is missing and required.
+   * @throws {ApplicationError} If any variable fails validation or is required but unset.
    *
    * @example
-   * ```ts
-   * try {
-   *   env.define('API_URL', {required: true});
-   *   env.validate();
-   * } catch (error) {
-   *   console.error('Validation failed:', error);
-   * }
+   * ```typescript
+   * env.validate(); // Throws if invalid
    * ```
    */
   validate(): void;
 
   /**
-   * Creates a forked environment instance with overridden values.
-   * This is useful for isolated testing or contextual overrides.
+   * Creates a new environment that inherits from the current one and applies overrides.
    *
-   * @param overrides A partial map of variable overrides.
-   * @returns A new `Environment` instance with the overrides applied.
+   * @param overrides Values to override in the new environment instance.
+   * @returns A new forked Environment instance.
    *
    * @example
-   * ```ts
-   * const forkedEnv = env.fork({API_URL: 'https://test.api.com'});
-   * console.log(forkedEnv.get('API_URL')); // Outputs: 'https://test.api.com'
+   * ```typescript
+   * const testEnv = env.fork({ DEBUG: false });
    * ```
    */
   fork(overrides: Partial<Variables>): Environment<Variables>;
@@ -312,14 +336,12 @@ export interface Environment<
   /**
    * Serializes the environment to a plain object.
    *
-   * @param options Optional serialization options.
-   * @returns A plain object containing environment variable values.
+   * @param options Control what keys are included or redacted.
+   * @returns A map of variable names to their current values or undefined.
    *
    * @example
-   * ```ts
-   * const serialized = env.toJSON({includeSensitive: true});
-   * console.log(serialized);
-   * // Outputs: {API_URL: 'https://api.example.com', API_KEY: 'my-secret-key'}
+   * ```typescript
+   * const data = env.toJSON({ omit: ['SECRET_KEY'] });
    * ```
    */
   toJSON(options?: EnvironmentSerializeOptions): Record<string, unknown>;

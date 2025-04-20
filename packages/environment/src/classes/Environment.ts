@@ -32,18 +32,23 @@ export class Environment<
     if (parent) {
       this._parent = parent;
       this._parent.addEventListener('error', (event: any) => {
-        if (!(event.detail.name in this._definitions)) this.dispatchEvent(event);
+        if (!(event.detail.name in this._definitions))
+          this.dispatchEvent(event);
       });
       this._parent.addEventListener('environment:changed', (event: any) => {
-        if (!(event.detail.name in this._definitions)) this.dispatchEvent(event);
+        if (!(event.detail.name in this._definitions))
+          this.dispatchEvent(event);
       });
     }
   }
-  get<Name extends keyof Variables>(name: Name, fallback?: Variables[Name]): Variables[Name] {
-    return (this._values[name] ??
-      this._parent?.get(name, fallback) ??
+  get<Key extends keyof Variables>(
+    key: Key,
+    fallback?: Variables[Key],
+  ): Variables[Key] {
+    return (this._values[key] ??
+      this._parent?.get(key, fallback) ??
       fallback ??
-      this._definitions[name]?.default) as Variables[Name];
+      this._definitions[key]?.default) as Variables[Key];
   }
   has<Key extends keyof Variables>(key: Key): boolean {
     return (
@@ -56,7 +61,9 @@ export class Environment<
     return !this.has(key);
   }
   define(
-    maybeKey: keyof Variables | Record<keyof Variables, Micra.EnvironmentDefinition>,
+    maybeKey:
+      | keyof Variables
+      | Record<keyof Variables, Micra.EnvironmentDefinition>,
     definition?: Micra.EnvironmentDefinition,
   ): void {
     const definitions =
@@ -79,7 +86,9 @@ export class Environment<
           const error = new ApplicationError({
             status: 500,
             title: 'Environment error',
-            detail: `Invalid default value for environment variable ${String(key)}`,
+            detail: `Invalid default value for environment variable ${String(
+              key,
+            )}`,
             metadata: {...result, key},
           });
           this.dispatchEvent(new Event('error', {detail: {error}}));
@@ -88,7 +97,8 @@ export class Environment<
       }
       this._definitions[key] = next;
       if (key in this._values) {
-        const nextValue = next.transform?.(this._values[key]) ?? this._values[key];
+        const nextValue =
+          next.transform?.(this._values[key]) ?? this._values[key];
         const result: ValidationResult<any> = next.validate?.(nextValue) ?? {
           value: nextValue,
         };
@@ -96,7 +106,9 @@ export class Environment<
           const error = new ApplicationError({
             status: 500,
             title: 'Environment error',
-            detail: `Invalid default value for environment variable ${String(key)}`,
+            detail: `Invalid default value for environment variable ${String(
+              key,
+            )}`,
             metadata: {...result, key},
           });
           this.dispatchEvent(new Event('error', {detail: {error}}));
@@ -107,8 +119,12 @@ export class Environment<
       }
     }
   }
-  set(maybeKey: keyof Variables | Partial<Variables>, value?: Variables[keyof Variables]): void {
-    const values = typeof maybeKey === 'string' ? {[maybeKey]: value} : maybeKey;
+  set(
+    maybeKey: keyof Variables | Partial<Variables>,
+    value?: Variables[keyof Variables],
+  ): void {
+    const values =
+      typeof maybeKey === 'string' ? {[maybeKey]: value} : maybeKey;
     for (const [key, value] of Object.entries(values) as [
       keyof Variables,
       Variables[keyof Variables],
@@ -116,7 +132,9 @@ export class Environment<
       const definition = this._definitions[key];
       if (definition) {
         const nextValue = definition.transform?.(value) ?? value;
-        const result: ValidationResult<any> = definition.validate?.(nextValue) ?? {
+        const result: ValidationResult<any> = definition.validate?.(
+          nextValue,
+        ) ?? {
           value: nextValue,
         };
         if (result.issues) {
@@ -158,7 +176,10 @@ export class Environment<
         const result: ValidationResult<any> = definition.validate?.(value) ?? {
           value,
         };
-        if (result.issues || (result.value === undefined && definition.required)) {
+        if (
+          result.issues ||
+          (result.value === undefined && definition.required)
+        ) {
           error.add(
             new ApplicationError({
               status: 500,
@@ -180,7 +201,9 @@ export class Environment<
     const forked = new Environment<Variables>(overrides, undefined, this);
     return forked;
   }
-  toJSON(options: Micra.EnvironmentSerializeOptions = {}): Record<string, unknown> {
+  toJSON(
+    options: Micra.EnvironmentSerializeOptions = {},
+  ): Record<string, unknown> {
     // resolve keys
     const {pick, omit, includeSensitive = false} = options;
     return Object.keys(this._definitions).reduce((list, key) => {
