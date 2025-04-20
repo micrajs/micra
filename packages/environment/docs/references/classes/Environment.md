@@ -6,7 +6,7 @@
 
 # Class: Environment\<Variables\>
 
-Defined in: [environment/src/classes/Environment.ts:7](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/environment/src/classes/Environment.ts#L7)
+Defined in: [environment/src/classes/Environment.ts:7](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/environment/src/classes/Environment.ts#L7)
 
 ## Extends
 
@@ -28,7 +28,7 @@ Defined in: [environment/src/classes/Environment.ts:7](https://github.com/micraj
 
 > **new Environment**\<`Variables`\>(`partial`, `definitions`, `parent?`): `Environment`\<`Variables`\>
 
-Defined in: [environment/src/classes/Environment.ts:22](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/environment/src/classes/Environment.ts#L22)
+Defined in: [environment/src/classes/Environment.ts:22](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/environment/src/classes/Environment.ts#L22)
 
 #### Parameters
 
@@ -133,7 +133,7 @@ Returns a function that removes the added listener when called.
 
 > **define**(`maybeKey`, `definition?`): `void`
 
-Defined in: [environment/src/classes/Environment.ts:58](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/environment/src/classes/Environment.ts#L58)
+Defined in: [environment/src/classes/Environment.ts:101](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/environment/src/classes/Environment.ts#L101)
 
 Defines the schema and behavior for a single environment variable.
 
@@ -207,7 +207,7 @@ Dispatches an event to all registered listeners, returning a boolean indicating 
 
 > **fork**(`overrides`): `Environment`\<`Variables`\>
 
-Defined in: [environment/src/classes/Environment.ts:179](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/environment/src/classes/Environment.ts#L179)
+Defined in: [environment/src/classes/Environment.ts:221](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/environment/src/classes/Environment.ts#L221)
 
 Creates a new environment that inherits from the current one and applies overrides.
 
@@ -241,7 +241,7 @@ const testEnv = env.fork({ DEBUG: false });
 
 > **get**\<`Key`\>(`key`, `fallback?`): `Variables`\[`Key`\]
 
-Defined in: [environment/src/classes/Environment.ts:42](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/environment/src/classes/Environment.ts#L42)
+Defined in: [environment/src/classes/Environment.ts:79](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/environment/src/classes/Environment.ts#L79)
 
 Retrieves the value of a defined environment variable.
 
@@ -287,7 +287,7 @@ env.get('PORT'); // 3000
 
 > **has**\<`Key`\>(`key`): `boolean`
 
-Defined in: [environment/src/classes/Environment.ts:48](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/environment/src/classes/Environment.ts#L48)
+Defined in: [environment/src/classes/Environment.ts:89](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/environment/src/classes/Environment.ts#L89)
 
 Checks if a variable has been explicitly set.
 
@@ -329,7 +329,7 @@ env.has('DEBUG'); // true or false
 
 > **missing**\<`Key`\>(`key`): `boolean`
 
-Defined in: [environment/src/classes/Environment.ts:55](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/environment/src/classes/Environment.ts#L55)
+Defined in: [environment/src/classes/Environment.ts:97](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/environment/src/classes/Environment.ts#L97)
 
 Checks if a variable is missing (i.e., undefined and no default value).
 
@@ -409,7 +409,7 @@ Removes a previously added event listener for a specific event type.
 
 > **set**(`maybeKey`, `value?`): `void`
 
-Defined in: [environment/src/classes/Environment.ts:110](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/environment/src/classes/Environment.ts#L110)
+Defined in: [environment/src/classes/Environment.ts:142](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/environment/src/classes/Environment.ts#L142)
 
 Sets a single environment variable to a new value.
 
@@ -449,7 +449,7 @@ env.set('PORT', 8080);
 
 > **toJSON**(`options`): `Record`\<`string`, `unknown`\>
 
-Defined in: [environment/src/classes/Environment.ts:183](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/environment/src/classes/Environment.ts#L183)
+Defined in: [environment/src/classes/Environment.ts:225](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/environment/src/classes/Environment.ts#L225)
 
 Serializes the environment to a plain object.
 
@@ -483,7 +483,7 @@ const data = env.toJSON({ omit: ['SECRET_KEY'] });
 
 > **unset**\<`Key`\>(`key`): `void`
 
-Defined in: [environment/src/classes/Environment.ts:140](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/environment/src/classes/Environment.ts#L140)
+Defined in: [environment/src/classes/Environment.ts:166](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/environment/src/classes/Environment.ts#L166)
 
 Removes the value of a defined environment variable.
 
@@ -521,7 +521,7 @@ env.unset('DEBUG');
 
 > **validate**(): `void`
 
-Defined in: [environment/src/classes/Environment.ts:146](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/environment/src/classes/Environment.ts#L146)
+Defined in: [environment/src/classes/Environment.ts:173](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/environment/src/classes/Environment.ts#L173)
 
 Validates all defined variables against their schema.
 

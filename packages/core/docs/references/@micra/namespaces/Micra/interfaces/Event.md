@@ -6,7 +6,7 @@
 
 # Interface: Event\<Type, Detail\>
 
-Defined in: [event-emitter/index.d.ts:9](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L9)
+Defined in: [event-emitter/index.d.ts:9](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L9)
 
 Represents an event object with metadata, propagation controls, and a composed path.
 
@@ -30,7 +30,7 @@ The structured metadata associated with the event.
 
 > `readonly` **bubbles**: `boolean`
 
-Defined in: [event-emitter/index.d.ts:31](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L31)
+Defined in: [event-emitter/index.d.ts:31](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L31)
 
 Indicates whether the event bubbles up through the event chain.
 
@@ -40,7 +40,7 @@ Indicates whether the event bubbles up through the event chain.
 
 > `readonly` **cancelable**: `boolean`
 
-Defined in: [event-emitter/index.d.ts:36](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L36)
+Defined in: [event-emitter/index.d.ts:36](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L36)
 
 Indicates whether the event can be canceled using `preventDefault()`.
 
@@ -50,7 +50,7 @@ Indicates whether the event can be canceled using `preventDefault()`.
 
 > `readonly` **currentTarget**: [`EventEmitter`](EventEmitter.md)\<`Record`\<`string`, `any`\>\>
 
-Defined in: [event-emitter/index.d.ts:46](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L46)
+Defined in: [event-emitter/index.d.ts:46](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L46)
 
 The `EventEmitter` currently processing the event.
 
@@ -60,7 +60,7 @@ The `EventEmitter` currently processing the event.
 
 > `readonly` **defaultPrevented**: `boolean`
 
-Defined in: [event-emitter/index.d.ts:41](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L41)
+Defined in: [event-emitter/index.d.ts:41](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L41)
 
 Indicates whether `preventDefault()` was called on the event.
 
@@ -70,7 +70,7 @@ Indicates whether `preventDefault()` was called on the event.
 
 > `readonly` **detail**: `Detail`
 
-Defined in: [event-emitter/index.d.ts:21](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L21)
+Defined in: [event-emitter/index.d.ts:21](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L21)
 
 Additional data related to the event, providing context for event handlers.
 
@@ -80,7 +80,7 @@ Additional data related to the event, providing context for event handlers.
 
 > `readonly` **eventPhase**: `number`
 
-Defined in: [event-emitter/index.d.ts:26](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L26)
+Defined in: [event-emitter/index.d.ts:26](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L26)
 
 The current phase of the event (e.g., capturing, at target, or bubbling).
 
@@ -90,7 +90,7 @@ The current phase of the event (e.g., capturing, at target, or bubbling).
 
 > `readonly` **immediatePropagationStopped**: `boolean`
 
-Defined in: [event-emitter/index.d.ts:61](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L61)
+Defined in: [event-emitter/index.d.ts:61](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L61)
 
 Indicates whether `stopImmediatePropagation()` was called on the event.
 
@@ -100,7 +100,7 @@ Indicates whether `stopImmediatePropagation()` was called on the event.
 
 > `readonly` **propagationStopped**: `boolean`
 
-Defined in: [event-emitter/index.d.ts:66](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L66)
+Defined in: [event-emitter/index.d.ts:66](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L66)
 
 Indicates whether `stopPropagation()` was called, halting the event’s propagation.
 
@@ -110,7 +110,7 @@ Indicates whether `stopPropagation()` was called, halting the event’s propagat
 
 > `readonly` **target**: [`EventEmitter`](EventEmitter.md)\<`Record`\<`string`, `any`\>\>
 
-Defined in: [event-emitter/index.d.ts:51](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L51)
+Defined in: [event-emitter/index.d.ts:51](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L51)
 
 The original `EventEmitter` that dispatched the event.
 
@@ -120,7 +120,7 @@ The original `EventEmitter` that dispatched the event.
 
 > `readonly` **timeStamp**: `number`
 
-Defined in: [event-emitter/index.d.ts:56](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L56)
+Defined in: [event-emitter/index.d.ts:56](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L56)
 
 The time when the event was created, in milliseconds.
 
@@ -130,7 +130,7 @@ The time when the event was created, in milliseconds.
 
 > `readonly` **type**: `Type`
 
-Defined in: [event-emitter/index.d.ts:16](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L16)
+Defined in: [event-emitter/index.d.ts:16](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L16)
 
 The type of the event, indicating the specific event that occurred.
 
@@ -140,7 +140,7 @@ The type of the event, indicating the specific event that occurred.
 
 > **composedPath**(): [`EventEmitter`](EventEmitter.md)\<`Record`\<`string`, `any`\>\>[]
 
-Defined in: [event-emitter/index.d.ts:86](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L86)
+Defined in: [event-emitter/index.d.ts:86](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L86)
 
 Returns an array representing the path the event follows through the event emitters.
 
@@ -154,7 +154,7 @@ Returns an array representing the path the event follows through the event emitt
 
 > **preventDefault**(): `void`
 
-Defined in: [event-emitter/index.d.ts:81](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L81)
+Defined in: [event-emitter/index.d.ts:81](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L81)
 
 Cancels the event’s default action if it is cancelable.
 
@@ -168,7 +168,7 @@ Cancels the event’s default action if it is cancelable.
 
 > **stopImmediatePropagation**(): `void`
 
-Defined in: [event-emitter/index.d.ts:76](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L76)
+Defined in: [event-emitter/index.d.ts:76](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L76)
 
 Stops the event from propagating and prevents other listeners on the same event from being executed.
 
@@ -182,7 +182,7 @@ Stops the event from propagating and prevents other listeners on the same event 
 
 > **stopPropagation**(): `void`
 
-Defined in: [event-emitter/index.d.ts:71](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L71)
+Defined in: [event-emitter/index.d.ts:71](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L71)
 
 Prevents the event from propagating further in the event chain.
 

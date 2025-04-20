@@ -8,7 +8,7 @@
 
 > **MatchGlobEvents**\<`Glob`, `EventMap`\> = `{ [K in keyof EventMap]: K extends GlobToPath<Glob> ? Event<K, EventMap[K]> : never }`\[keyof `EventMap`\]
 
-Defined in: [event-emitter/index.d.ts:124](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L124)
+Defined in: [event-emitter/index.d.ts:124](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L124)
 
 Matches all events in a given event map against a glob pattern.
 

@@ -8,7 +8,7 @@
 
 > **isErrorOptions**(`maybeOptions`): `maybeOptions is ErrorOptions`
 
-Defined in: [guards/isErrorOptions.ts:16](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/error/src/guards/isErrorOptions.ts#L16)
+Defined in: [guards/isErrorOptions.ts:16](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/error/src/guards/isErrorOptions.ts#L16)
 
 Checks if the given value is a valid `Micra.ErrorOptions` object.
 Validates that the object matches the structure expected for `Micra.ErrorOptions`.

@@ -6,7 +6,7 @@
 
 # Interface: EnvironmentSerializeOptions
 
-Defined in: [environment/index.d.ts:89](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L89)
+Defined in: [environment/index.d.ts:89](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L89)
 
 Options used when serializing the environment to an object.
 
@@ -16,7 +16,7 @@ Options used when serializing the environment to an object.
 
 > `optional` **includeSensitive**: `boolean`
 
-Defined in: [environment/index.d.ts:98](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L98)
+Defined in: [environment/index.d.ts:98](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L98)
 
 If true, includes sensitive variables in the output. Defaults to false.
 
@@ -32,7 +32,7 @@ env.toJSON({ includeSensitive: true });
 
 > `optional` **omit**: `string`[]
 
-Defined in: [environment/index.d.ts:118](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L118)
+Defined in: [environment/index.d.ts:118](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L118)
 
 List of variable names to exclude from the output.
 
@@ -48,7 +48,7 @@ env.toJSON({ omit: ['SECRET_KEY'] });
 
 > `optional` **pick**: `string`[]
 
-Defined in: [environment/index.d.ts:108](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L108)
+Defined in: [environment/index.d.ts:108](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L108)
 
 List of variable names to include in the output. If omitted, all are included.
 
