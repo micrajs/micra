@@ -104,9 +104,7 @@ export class Environment<
       Micra.EnvironmentDefinition,
     ][]) {
       const current = this._definitions[key] || {};
-
-      Object.assign(current, definition);
-      this._definitions[key] = current;
+      this._definitions[key] = {...current, ...definition};
 
       if (current.default !== undefined) {
         current.default = this._validateValue(
