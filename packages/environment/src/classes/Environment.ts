@@ -34,10 +34,7 @@ export class Environment<
       this._parent = parent;
       this._handleParentEvent = this._handleParentEvent.bind(this);
       this._parent.addEventListener('error', this._handleParentEvent);
-      this._parent.addEventListener(
-        'environment:changed',
-        this._handleParentEvent,
-      );
+      this._parent.addEventListener('environment:changed', this._handleParentEvent);
     }
   }
 
@@ -56,9 +53,7 @@ export class Environment<
     if (!definition) return value;
 
     const transformedValue = definition.transform?.(value) ?? value;
-    const result: ValidationResult<any> = definition.validate?.(
-      transformedValue,
-    ) ?? {
+    const result: ValidationResult<any> = definition.validate?.(transformedValue) ?? {
       value: transformedValue,
     };
 
@@ -76,10 +71,7 @@ export class Environment<
     return transformedValue;
   }
 
-  get<Key extends keyof Variables>(
-    key: Key,
-    fallback?: Variables[Key],
-  ): Variables[Key] {
+  get<Key extends keyof Variables>(key: Key, fallback?: Variables[Key]): Variables[Key] {
     return (this._values[key] ??
       this._parent?.get(key, fallback) ??
       fallback ??
@@ -99,9 +91,7 @@ export class Environment<
   }
 
   define(
-    maybeKey:
-      | keyof Variables
-      | Record<keyof Variables, Micra.EnvironmentDefinition>,
+    maybeKey: keyof Variables | Record<keyof Variables, Micra.EnvironmentDefinition>,
     definition?: Micra.EnvironmentDefinition,
   ): void {
     const definitions =
@@ -129,22 +119,14 @@ export class Environment<
       }
 
       if (key in this._values) {
-        this._values[key] = this._validateValue(
-          key,
-          this._values[key],
-          current,
-        );
+        this._values[key] = this._validateValue(key, this._values[key], current);
         this.dispatchEvent(new Event('environment:changed'));
       }
     }
   }
 
-  set(
-    maybeKey: keyof Variables | Partial<Variables>,
-    value?: Variables[keyof Variables],
-  ): void {
-    const values =
-      typeof maybeKey === 'string' ? {[maybeKey]: value} : maybeKey;
+  set(maybeKey: keyof Variables | Partial<Variables>, value?: Variables[keyof Variables]): void {
+    const values = typeof maybeKey === 'string' ? {[maybeKey]: value} : maybeKey;
 
     for (const [key, value] of Object.entries(values) as [
       keyof Variables,
@@ -222,16 +204,13 @@ export class Environment<
     return new Environment<Variables>(overrides, undefined, this);
   }
 
-  toJSON(
-    options: Micra.EnvironmentSerializeOptions = {},
-  ): Record<string, unknown> {
+  toJSON(options: Micra.EnvironmentSerializeOptions = {}): Record<string, unknown> {
     const {pick, omit, includeSensitive = false} = options;
     const parentJSON = this._parent?.toJSON(options) ?? {};
 
     // Only iterate through keys that meet our criteria
     return Object.keys(this._definitions).reduce((result, key) => {
-      if ((pick && !pick.includes(key)) || (omit && omit.includes(key)))
-        return result;
+      if ((pick && !pick.includes(key)) || (omit && omit.includes(key))) return result;
 
       const definition = this._definitions[key];
       if (definition?.sensitive && !includeSensitive) return result;
