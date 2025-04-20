@@ -37,6 +37,11 @@
     "test:watch": "vitest",
     "test": "vitest run"
   },
+  "dependencies": {
+    "@micra/error": "workspace:^0.0.0",
+    "@micra/event-emitter": "workspace:^0.0.0",
+    "@micra/utilities": "workspace:^0.0.0"
+  },
   "devDependencies": {
     "@micra/core": "workspace:^0.0.0",
     "@size-limit/preset-small-lib": "^11.1.2",

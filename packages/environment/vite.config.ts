@@ -24,9 +24,10 @@ export default defineConfig({
     name: pkg.name,
     coverage: {
       include: ['src/**/*.ts'],
-      reporter: 'json-summary',
+      // reporter: 'json-summary',
       exclude: ['node_modules', 'tests', '**/*.test.ts', 'src/*.ts'],
       reportsDirectory: '.config/coverage',
+      cleanOnRerun: true,
     },
   },
 });
