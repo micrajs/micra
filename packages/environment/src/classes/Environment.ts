@@ -105,7 +105,6 @@ export class Environment<
     ][]) {
       const current = this._definitions[key] || {};
 
-      // Update definition properties without creating a new object
       Object.assign(current, definition);
       this._definitions[key] = current;
 
@@ -208,7 +207,6 @@ export class Environment<
     const {pick, omit, includeSensitive = false} = options;
     const parentJSON = this._parent?.toJSON(options) ?? {};
 
-    // Only iterate through keys that meet our criteria
     return Object.keys(this._definitions).reduce((result, key) => {
       if ((pick && !pick.includes(key)) || (omit && omit.includes(key))) return result;
 
