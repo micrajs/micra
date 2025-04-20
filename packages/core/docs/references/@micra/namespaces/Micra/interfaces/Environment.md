@@ -6,7 +6,7 @@
 
 # Interface: Environment\<Variables\>
 
-Defined in: [environment/index.d.ts:144](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L144)
+Defined in: [environment/index.d.ts:144](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L144)
 
 Represents a structured, type-safe environment with schema-based definitions,
 runtime validation, transformation, and serialization support.
@@ -29,7 +29,7 @@ The shape of the variable map for this environment.
 
 > **addEventListener**\<`Type`\>(`type`, `listener`, `options?`): () => `void`
 
-Defined in: [event-emitter/index.d.ts:138](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L138)
+Defined in: [event-emitter/index.d.ts:138](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L138)
 
 Adds an event listener for a specific event type, with support for glob patterns and optional listener settings.
 Returns a function that removes the added listener when called.
@@ -74,7 +74,7 @@ Returns a function that removes the added listener when called.
 
 > **define**\<`Key`\>(`key`, `definition`): `void`
 
-Defined in: [environment/index.d.ts:228](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L228)
+Defined in: [environment/index.d.ts:228](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L228)
 
 Defines the schema and behavior for a single environment variable.
 
@@ -118,7 +118,7 @@ env.define('PORT', {
 
 > **define**\<`Defs`\>(`key`): `void`
 
-Defined in: [environment/index.d.ts:248](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L248)
+Defined in: [environment/index.d.ts:248](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L248)
 
 Defines multiple variables using a map of schema definitions.
 
@@ -157,7 +157,7 @@ env.define({
 
 > **dispatchEvent**\<`Type`\>(`event`): `boolean`
 
-Defined in: [event-emitter/index.d.ts:155](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L155)
+Defined in: [event-emitter/index.d.ts:155](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L155)
 
 Dispatches an event to all registered listeners, returning a boolean indicating if any listener called `preventDefault()`.
 
@@ -187,7 +187,7 @@ Dispatches an event to all registered listeners, returning a boolean indicating 
 
 > **fork**(`overrides`): `Environment`\<`Variables`\>
 
-Defined in: [environment/index.d.ts:323](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L323)
+Defined in: [environment/index.d.ts:323](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L323)
 
 Creates a new environment that inherits from the current one and applies overrides.
 
@@ -219,7 +219,7 @@ const testEnv = env.fork({ DEBUG: false });
 
 > **get**\<`Key`\>(`key`): `Variables`\[`Key`\]
 
-Defined in: [environment/index.d.ts:163](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L163)
+Defined in: [environment/index.d.ts:163](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L163)
 
 Retrieves the value of a defined environment variable.
 
@@ -255,7 +255,7 @@ env.get('PORT'); // 3000
 
 > **get**\<`Key`\>(`key`, `fallback`): `Variables`\[`Key`\]
 
-Defined in: [environment/index.d.ts:179](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L179)
+Defined in: [environment/index.d.ts:179](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L179)
 
 Retrieves the value of a defined variable, falling back to a default if unset.
 
@@ -299,7 +299,7 @@ env.get('PORT', 8080); // Uses 8080 if PORT is not set
 
 > **has**\<`Key`\>(`key`): `boolean`
 
-Defined in: [environment/index.d.ts:194](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L194)
+Defined in: [environment/index.d.ts:194](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L194)
 
 Checks if a variable has been explicitly set.
 
@@ -337,7 +337,7 @@ env.has('DEBUG'); // true or false
 
 > **missing**\<`Key`\>(`key`): `boolean`
 
-Defined in: [environment/index.d.ts:209](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L209)
+Defined in: [environment/index.d.ts:209](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L209)
 
 Checks if a variable is missing (i.e., undefined and no default value).
 
@@ -375,7 +375,7 @@ env.missing('API_URL'); // true if not defined and no default
 
 > **removeEventListener**\<`Type`\>(`type`, `listener`): `void`
 
-Defined in: [event-emitter/index.d.ts:147](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L147)
+Defined in: [event-emitter/index.d.ts:147](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L147)
 
 Removes a previously added event listener for a specific event type.
 
@@ -411,7 +411,7 @@ Removes a previously added event listener for a specific event type.
 
 > **set**\<`Key`\>(`key`, `value`): `void`
 
-Defined in: [environment/index.d.ts:269](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L269)
+Defined in: [environment/index.d.ts:269](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L269)
 
 Sets a single environment variable to a new value.
 
@@ -455,7 +455,7 @@ env.set('PORT', 8080);
 
 > **set**(`partial`): `void`
 
-Defined in: [environment/index.d.ts:286](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L286)
+Defined in: [environment/index.d.ts:286](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L286)
 
 Sets multiple environment variables in bulk.
 
@@ -490,7 +490,7 @@ env.set({
 
 > **toJSON**(`options?`): `Record`\<`string`, `unknown`\>
 
-Defined in: [environment/index.d.ts:336](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L336)
+Defined in: [environment/index.d.ts:336](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L336)
 
 Serializes the environment to a plain object.
 
@@ -520,7 +520,7 @@ const data = env.toJSON({ omit: ['SECRET_KEY'] });
 
 > **unset**(`key`): `void`
 
-Defined in: [environment/index.d.ts:298](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L298)
+Defined in: [environment/index.d.ts:298](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L298)
 
 Removes the value of a defined environment variable.
 
@@ -548,7 +548,7 @@ env.unset('DEBUG');
 
 > **validate**(): `void`
 
-Defined in: [environment/index.d.ts:310](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L310)
+Defined in: [environment/index.d.ts:310](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L310)
 
 Validates all defined variables against their schema.
 

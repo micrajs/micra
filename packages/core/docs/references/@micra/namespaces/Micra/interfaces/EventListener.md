@@ -6,7 +6,7 @@
 
 # Interface: EventListener()\<E\>
 
-Defined in: [event-emitter/index.d.ts:114](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L114)
+Defined in: [event-emitter/index.d.ts:114](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L114)
 
 A type for event listener functions that handle dispatched events.
 
@@ -20,7 +20,7 @@ The event object type, ensuring type safety.
 
 > **EventListener**(`event`): `void`
 
-Defined in: [event-emitter/index.d.ts:115](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/event-emitter/index.d.ts#L115)
+Defined in: [event-emitter/index.d.ts:115](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/event-emitter/index.d.ts#L115)
 
 A type for event listener functions that handle dispatched events.
 

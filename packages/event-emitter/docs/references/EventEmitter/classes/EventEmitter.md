@@ -6,7 +6,7 @@
 
 # Class: EventEmitter\<EventMap\>
 
-Defined in: [classes/EventEmitter.ts:15](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/EventEmitter.ts#L15)
+Defined in: [classes/EventEmitter.ts:15](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/event-emitter/src/classes/EventEmitter.ts#L15)
 
 ## Type Parameters
 
@@ -34,7 +34,7 @@ Defined in: [classes/EventEmitter.ts:15](https://github.com/micrajs/micra/blob/d
 
 > **addChild**(`child`): `this`
 
-Defined in: [classes/EventEmitter.ts:137](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/EventEmitter.ts#L137)
+Defined in: [classes/EventEmitter.ts:137](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/event-emitter/src/classes/EventEmitter.ts#L137)
 
 Reparents a child event emitter to this event emitter. This will allow the child to bubble events up to this event emitter.
 
@@ -58,7 +58,7 @@ This event emitter.
 
 > **addEventListener**\<`Type`\>(`type`, `listener`, `options`): () => `void`
 
-Defined in: [classes/EventEmitter.ts:23](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/EventEmitter.ts#L23)
+Defined in: [classes/EventEmitter.ts:23](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/event-emitter/src/classes/EventEmitter.ts#L23)
 
 Adds an event listener for a specific event type, with support for glob patterns and optional listener settings.
 Returns a function that removes the added listener when called.
@@ -101,7 +101,7 @@ Returns a function that removes the added listener when called.
 
 > **dispatchEvent**\<`Type`\>(`event`): `boolean`
 
-Defined in: [classes/EventEmitter.ts:64](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/EventEmitter.ts#L64)
+Defined in: [classes/EventEmitter.ts:64](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/event-emitter/src/classes/EventEmitter.ts#L64)
 
 Dispatches an event to all registered listeners, returning a boolean indicating if any listener called `preventDefault()`.
 
@@ -131,7 +131,7 @@ Dispatches an event to all registered listeners, returning a boolean indicating 
 
 > **removeEventListener**\<`Type`\>(`type`, `listener`): `void`
 
-Defined in: [classes/EventEmitter.ts:46](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/event-emitter/src/classes/EventEmitter.ts#L46)
+Defined in: [classes/EventEmitter.ts:46](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/event-emitter/src/classes/EventEmitter.ts#L46)
 
 Removes a previously added event listener for a specific event type.
 

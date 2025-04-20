@@ -6,7 +6,7 @@
 
 # Interface: EnvironmentDefinition\<Value\>
 
-Defined in: [environment/index.d.ts:15](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L15)
+Defined in: [environment/index.d.ts:15](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L15)
 
 Defines the schema and behavior of an individual environment variable.
 
@@ -24,7 +24,7 @@ The expected type of the variable after transformation.
 
 > `optional` **default**: `Value`
 
-Defined in: [environment/index.d.ts:26](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L26)
+Defined in: [environment/index.d.ts:26](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L26)
 
 The default value used when no value is explicitly set.
 
@@ -42,7 +42,7 @@ The default value used when no value is explicitly set.
 
 > `optional` **required**: `boolean`
 
-Defined in: [environment/index.d.ts:38](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L38)
+Defined in: [environment/index.d.ts:38](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L38)
 
 Marks the variable as required. Will trigger validation if not set.
 
@@ -60,7 +60,7 @@ Marks the variable as required. Will trigger validation if not set.
 
 > `optional` **sensitive**: `boolean`
 
-Defined in: [environment/index.d.ts:50](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L50)
+Defined in: [environment/index.d.ts:50](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L50)
 
 Marks the variable as sensitive. It will be excluded from serialized outputs unless explicitly included.
 
@@ -78,7 +78,7 @@ Marks the variable as sensitive. It will be excluded from serialized outputs unl
 
 > `optional` **transform**: (`input`) => `Value`
 
-Defined in: [environment/index.d.ts:65](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L65)
+Defined in: [environment/index.d.ts:65](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L65)
 
 Function to transform the raw input into the desired value type.
 
@@ -110,7 +110,7 @@ The transformed value.
 
 > `optional` **validate**: (`value`) => `ValidationResult`\<`Value`\>
 
-Defined in: [environment/index.d.ts:83](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/core/environment/index.d.ts#L83)
+Defined in: [environment/index.d.ts:83](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/core/environment/index.d.ts#L83)
 
 Function to validate the transformed value.
 

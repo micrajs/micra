@@ -8,7 +8,7 @@
 
 > **isError**(`maybeError`): `maybeError is Error`
 
-Defined in: [guards/isError.ts:16](https://github.com/micrajs/micra/blob/d68b1ba299bb0ba5d2fa49fd403fe8866818f855/packages/error/src/guards/isError.ts#L16)
+Defined in: [guards/isError.ts:16](https://github.com/micrajs/micra/blob/9dee9d74218aff0d087a331784c8dc5772a9fcdd/packages/error/src/guards/isError.ts#L16)
 
 Checks if the given value is a standard `Error` object.
 This function ensures that the object contains the essential properties of an `Error`.
