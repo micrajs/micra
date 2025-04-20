@@ -1,1 +1,1 @@
-export {};
+export {Environment} from './classes/Environment';
