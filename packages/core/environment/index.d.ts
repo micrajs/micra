@@ -5,13 +5,7 @@ import type {ValidationResult} from '../utilities/Validation';
 /**
  * Represents valid environment variable values.
  */
-export type EnvironmentVariableData =
-  | string
-  | number
-  | boolean
-  | symbol
-  | null
-  | undefined;
+export type EnvironmentVariableData = string | number | boolean | symbol | null | undefined;
 
 /**
  * Defines the schema and behavior of an individual environment variable.
@@ -182,10 +176,7 @@ export interface Environment<
    * env.get('PORT', 8080); // Uses 8080 if PORT is not set
    * ```
    */
-  get<Key extends keyof Variables>(
-    key: Key,
-    fallback: Variables[Key],
-  ): Variables[Key];
+  get<Key extends keyof Variables>(key: Key, fallback: Variables[Key]): Variables[Key];
 
   /**
    * Checks if a variable has been explicitly set.
@@ -258,9 +249,7 @@ export interface Environment<
     Defs extends Partial<{
       [K in keyof Variables]: EnvironmentDefinition<Variables[K]>;
     }>,
-  >(
-    key: Defs,
-  ): void;
+  >(key: Defs): void;
 
   /**
    * Sets a single environment variable to a new value.

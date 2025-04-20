@@ -6,4 +6,4 @@
 
 ## Namespaces
 
-- [Micra](namespaces/Micra/README.md)
+- [Micra](@micra/namespaces/Micra/README.md)

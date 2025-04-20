@@ -1,8 +1,8 @@
-[**@micra/core**](../../README.md)
+[**@micra/core**](../../../README.md)
 
 ***
 
-[@micra/core](../../README.md) / Micra
+[@micra/core](../../../README.md) / Micra
 
 # Micra
 
@@ -31,6 +31,10 @@ class CustomServiceProvider implements Micra.ServiceProvider {
 
 - [AddEventListenerOptions](interfaces/AddEventListenerOptions.md)
 - [ApplicationError](interfaces/ApplicationError.md)
+- [Environment](interfaces/Environment.md)
+- [EnvironmentDefinition](interfaces/EnvironmentDefinition.md)
+- [EnvironmentEventMap](interfaces/EnvironmentEventMap.md)
+- [EnvironmentSerializeOptions](interfaces/EnvironmentSerializeOptions.md)
 - [ErrorDetail](interfaces/ErrorDetail.md)
 - [ErrorOptions](interfaces/ErrorOptions.md)
 - [ErrorSerializerOptions](interfaces/ErrorSerializerOptions.md)
@@ -41,4 +45,5 @@ class CustomServiceProvider implements Micra.ServiceProvider {
 
 ## Type Aliases
 
+- [EnvironmentVariableData](type-aliases/EnvironmentVariableData.md)
 - [MatchGlobEvents](type-aliases/MatchGlobEvents.md)
